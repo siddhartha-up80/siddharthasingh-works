@@ -4,65 +4,68 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
   IconBrandX,
-  IconExchange,
   IconHome,
-  IconNewSection,
   IconTerminal2,
 } from "@tabler/icons-react";
-import { Instagram, Linkedin } from "lucide-react";
+import { Code, Instagram, Library, Linkedin, Mail, User } from "lucide-react";
 import Image from "next/image";
 
 const links = [
   {
     title: "Home",
-    icon: (
-      <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
+    icon: <IconHome className="h-full w-full text-red-500 dark:text-red-300" />,
     href: "/",
   },
 
   {
-    title: "Portfolio",
-    icon: (
-      <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
-    href: "https://siddharthasingh.me",
+    title: "About",
+    icon: <User className="h-full w-full text-red-500 dark:text-red-300" />, // User icon for About section
+    href: "/portfolio#about",
   },
   {
-    title: "Components",
-    icon: (
-      <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
-    href: "#",
+    title: "Projects",
+    icon: <Code className="h-full w-full text-red-500 dark:text-red-300" />, // Code icon for Projects
+    href: "/portfolio#projects",
   },
+  {
+    title: "Contact",
+    icon: <Mail className="h-full w-full text-red-500 dark:text-red-300" />, // Mail icon for Contact section
+    href: "/portfolio#contact",
+  },
+
   {
     title: "LinkedIn",
-    icon: (
-      <Linkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
+    icon: <Linkedin className="h-full w-full text-red-500 dark:text-red-300" />,
     href: "https://www.linkedin.com/in/siddhartha-singh-work",
   },
 
   {
     title: "Instagram",
     icon: (
-      <Instagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <Instagram className="h-full w-full text-red-500 dark:text-red-300" />
     ),
     href: "https://www.instagram.com/sid_up80",
   },
   {
-    title: "Twitter",
+    title: "X | Twitter",
     icon: (
-      <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <IconBrandX className="h-full w-full text-red-500 dark:text-red-300" />
     ),
-    href: "#",
+    href: "https://x.com/siddhartha_up80",
   },
   {
     title: "GitHub",
     icon: (
-      <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <IconBrandGithub className="h-full w-full text-red-500 dark:text-red-300" />
     ),
-    href: "#",
+    href: "https://github.com/siddhartha-up80",
+  },
+  {
+    title: "Classic Portfolio",
+    icon: (
+      <IconTerminal2 className="h-full w-full text-red-500 dark:text-red-300" />
+    ),
+    href: "https://siddharthasingh.me",
   },
 ];
 

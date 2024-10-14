@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/main/navbar-top";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import DockFooter from "@/components/main/dock-footer";
+import CanvasCursor from "@/components/ui/canvas-cursor";
+import CustomCursor from "@/components/ui/cutom-cursor";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +35,12 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar />
-          {children}
+          <div className="">{children}</div>
+          <div className="md:fixed md:bottom-0 fixed bottom-[10vh] left-5 md:left-0 w-full z-[100]">
+            <DockFooter />
+          </div>
+          <CanvasCursor />
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>

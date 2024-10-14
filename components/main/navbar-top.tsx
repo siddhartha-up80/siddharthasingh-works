@@ -73,9 +73,11 @@ function pathCheck(pathname: string, obj: Link) {
 export default function Navbar() {
   const pathname = usePathname();
 
+  console.log(pathname);
+
   return (
     <div
-      className={`min-w-screen sticky top-0 z-20 backdrop-blur-lg  backdrop-filter`}
+      className={`min-w-screen !sticky !top-0 z-20 backdrop-blur-lg w-full backdrop-filter`}
     >
       <div className="px-3 mx-auto flex justify-between items-center py-1 font-medium">
         {/* <Logo /> */}
