@@ -19,8 +19,6 @@ export default function Navbar({
 }) {
   const pathname = usePathname();
 
-  // console.log(pathname);
-
   return (
     <div
       className={`min-w-screen !sticky !top-0 z-20 backdrop-blur-lg w-full backdrop-filter`}
@@ -30,17 +28,6 @@ export default function Navbar({
         <div className="capitalize">{pathname.split("/")[1] || ""}</div>
 
         <div className="flex gap-1 justify-self-end">
-          {/* <div className="hidden lg:flex">
-            <div className="flex gap-2 items-center">
-              {links.map((link, idx) => (
-                <div key={idx}>
-                  <Link href={pathCheck(pathname, link)} className="">
-                    {link.label}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div> */}
           <ThemeToggle />
           <MobileNav items={items} />
         </div>

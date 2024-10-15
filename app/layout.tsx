@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import DockFooter, { links } from "@/components/main/dock-footer";
 import CanvasCursor from "@/components/ui/canvas-cursor";
 import CustomCursor from "@/components/ui/cutom-cursor";
+import Footer from "@/components/main/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +39,9 @@ export default function RootLayout({
           <div className="md:pb-24">{children}</div>
           <div className="md:fixed md:bottom-0 fixed bottom-[10vh] left-5 md:left-0 w-full z-[100]">
             <DockFooter />
+          </div>
+          <div className="">
+            <Footer />
           </div>
           <CanvasCursor />
           <CustomCursor />

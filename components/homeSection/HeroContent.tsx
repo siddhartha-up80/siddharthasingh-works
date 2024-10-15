@@ -91,7 +91,7 @@ export function HeroContent() {
           </Link>
 
           <Link href={`/portfolio`}>
-            <button className="group relative inline-flex h-[calc(48px+8px)] w-[200px] bg-gradient-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50">
+            <button className="group relative inline-flex h-[calc(48px+8px)] w-[200px] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50">
               <span className="z-10 pr-2">Explore Work</span>
               <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#e75050] bg-[#a02b2b] transition-[width] group-hover:w-[calc(100%-8px)]">
                 <div className="mr-3.5 flex items-center justify-center">

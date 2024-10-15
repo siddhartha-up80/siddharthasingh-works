@@ -1,5 +1,7 @@
+import Footer from "@/components/main/footer";
 import About from "@/components/portfolio/HeroAbout";
 import HeroPortfolio from "@/components/portfolio/HeroPortfolio";
+import QuickLinks from "@/components/portfolio/QuickLinks";
 import QuickProjects from "@/components/portfolio/QuickProjects";
 import React from "react";
 
@@ -9,6 +11,7 @@ const Page = () => {
       <HeroPortfolio />
       <About />
       <QuickProjects />
+      <QuickLinks />
     </div>
   );
 };

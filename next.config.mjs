@@ -9,6 +9,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "source.unsplash.com",
+        port: "",
+      },
+      {
+        protocol: "https",
         hostname: "api.microlink.io",
         port: "",
       },
