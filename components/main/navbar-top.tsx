@@ -9,71 +9,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "../ui/navigation-menu";
+
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 
-interface Link {
-  label: string;
-  href: {
-    pathname: string;
-    id: string;
-  };
-}
-
-const links = [
-  {
-    label: "home",
-    href: {
-      pathname: "/",
-      id: "#",
-    },
-  },
-  {
-    label: "experience",
-    href: {
-      pathname: "/",
-      id: "#experience",
-    },
-  },
-  {
-    label: "projects",
-    href: {
-      pathname: "/",
-      id: "#projects",
-    },
-  },
-  {
-    label: "setup",
-    href: {
-      pathname: "/",
-      id: "#setup",
-    },
-  },
-  {
-    label: "resume",
-    href: {
-      pathname: "/resume",
-      id: "#",
-    },
-  },
-];
-
-function pathCheck(pathname: string, obj: Link) {
-  return pathname === obj.href.pathname
-    ? obj.href.id
-    : obj.href.pathname + obj.href.id;
-}
-
-export default function Navbar() {
+export default function Navbar({
+  items,
+}: {
+  items: { title: string; icon: React.ReactNode; href: string }[];
+}) {
   const pathname = usePathname();
 
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <div
@@ -96,7 +42,7 @@ export default function Navbar() {
             </div>
           </div> */}
           <ThemeToggle />
-          <MobileNav />
+          <MobileNav items={items} />
         </div>
       </div>
     </div>
@@ -128,29 +74,38 @@ function ThemeToggle() {
   );
 }
 
-function MobileNav() {
+function MobileNav({
+  items,
+}: {
+  items: { title: string; icon: React.ReactNode; href: string }[];
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild className="lg:hidden">
+      <SheetTrigger asChild className="lg:hidden sticky z-50 top-0">
         <Button variant={"ghost"} size={"icon"} onClick={() => setOpen(true)}>
           <Menu className="w-6 h-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-48 pt-10">
-        <div className="flex flex-col gap-1">
-          {links.map((link, idx) => (
+      <SheetContent className="w-[70vw] pt-10">
+        <div className="flex flex-col justify-start w-full gap-3">
+          {items.map((link, idx) => (
             <Button
               variant={"ghost"}
               size={"lg"}
               key={idx}
-              className={cn("justify-start px-0 font-bold")}
+              className={cn(
+                "flex justify-start items-center gap-4 px-4 font-medium",
+                pathname === link.href ? "bg-red-200 dark:bg-red-900 " : ""
+              )}
               onClick={() => setOpen(false)}
-              asChild
             >
-              <Link href={pathCheck(pathname, link)}>{link.label}</Link>
+              <span>{link.icon}</span>
+              <Link href={link.href} className="text-xl">
+                {link.title}
+              </Link>
             </Button>
           ))}
         </div>

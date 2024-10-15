@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import Link from "next/link";
+import Image from "next/image";
 
 export function HeroContent() {
   return (
@@ -19,8 +20,22 @@ export function HeroContent() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="text-2xl px-4 md:text-3xl lg:text-4xl font-bold text-neutral-700 dark:text-white max-w-4xl flex-col flex gap-6 text-center mx-auto"
+        className="text-2xl px-4 md:text-3xl lg:text-4xl font-bold text-neutral-700 dark:text-white max-w-4xl flex-col flex gap-4 text-center mx-auto"
       >
+        <motion.div
+          className="flex items-center justify-center h-max"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
+          <Image
+            height={1000}
+            width={1000}
+            src="/images/siddharthacircle.png"
+            alt="Portfolio Image"
+            className="object-contain h-[25vh] "
+          />
+        </motion.div>
         <span className="leading-relaxed md:text-2xl text-xl lg:leading-loose font-normal">
           Hi! This is Siddhartha Singh
         </span>
@@ -29,8 +44,8 @@ export function HeroContent() {
             Crafting Engaging Interfaces
           </span>
         </Highlight>{" "}
-        <span className="md:text-2xl text-xl !leading-normal font-normal">
-          Explore work and social profiles and get out of the matrix
+        <span className="text-xl !leading-normal font-normal">
+          Explore my work and social profiles and get out of the matrix
         </span>
       </motion.h1>
 

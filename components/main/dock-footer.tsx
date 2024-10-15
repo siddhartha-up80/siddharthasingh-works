@@ -5,32 +5,38 @@ import {
   IconBrandGithub,
   IconBrandX,
   IconHome,
+  IconTerminal,
   IconTerminal2,
 } from "@tabler/icons-react";
-import { Code, Instagram, Library, Linkedin, Mail, User } from "lucide-react";
-import Image from "next/image";
+import { Code, Instagram, Linkedin, Mail, User } from "lucide-react";
 
-const links = [
+export const links = [
   {
     title: "Home",
     icon: <IconHome className="h-full w-full text-red-500 dark:text-red-300" />,
     href: "/",
   },
-
+  {
+    title: "Portfolio",
+    icon: (
+      <IconTerminal2 className="h-full w-full text-red-500 dark:text-red-300" />
+    ),
+    href: "/portfolio",
+  },
   {
     title: "About",
     icon: <User className="h-full w-full text-red-500 dark:text-red-300" />, // User icon for About section
-    href: "/portfolio#about",
+    href: "/portfolio/about",
   },
   {
     title: "Projects",
     icon: <Code className="h-full w-full text-red-500 dark:text-red-300" />, // Code icon for Projects
-    href: "/portfolio#projects",
+    href: "/portfolio/projects",
   },
   {
     title: "Contact",
     icon: <Mail className="h-full w-full text-red-500 dark:text-red-300" />, // Mail icon for Contact section
-    href: "/portfolio#contact",
+    href: "/portfolio/contact",
   },
 
   {
@@ -63,7 +69,7 @@ const links = [
   {
     title: "Classic Portfolio",
     icon: (
-      <IconTerminal2 className="h-full w-full text-red-500 dark:text-red-300" />
+      <IconTerminal className="h-full w-full text-red-500 dark:text-red-300" />
     ),
     href: "https://siddharthasingh.me",
   },

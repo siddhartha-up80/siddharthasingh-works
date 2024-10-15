@@ -40,32 +40,56 @@ const CustomCursor = () => {
   }, []);
 
   return (
-    !isPointer && ( // Only show custom cursor when isPointer is false
-      <motion.div
-        className="custom-cursor"
+    // !isPointer && ( // Only show custom cursor when isPointer is false
+    //   <motion.div
+    //     className="custom-cursor"
+    //     style={{
+    //       position: "fixed",
+    //       top: 0,
+    //       left: 0,
+    //       zIndex: 9999,
+    //       pointerEvents: "none", // Ignore events so the custom cursor doesn't block clicks
+    //       transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
+    //     }}
+    //     initial={{ opacity: 0 }}
+    //     animate={{ opacity: 1 }}
+    //     transition={{ duration: 0.1 }}
+    //   >
+    //     <div
+    //       style={{
+    //         // transform: "rotate(90deg)", // Rotating to match Windows cursor
+    //         width: "24px",
+    //         height: "24px",
+    //       }}
+    //     >
+    //       <PenTool size={26} className="text-red-800 dark:text-red-300" />
+    //     </div>
+    //   </motion.div>
+    // )
+    <motion.div
+      className="custom-cursor"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 9999,
+        pointerEvents: "none", // Ignore events so the custom cursor doesn't block clicks
+        transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.1 }}
+    >
+      <div
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: 9999,
-          pointerEvents: "none", // Ignore events so the custom cursor doesn't block clicks
-          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
+          // transform: "rotate(90deg)", // Rotating to match Windows cursor
+          width: "24px",
+          height: "24px",
         }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.1 }}
       >
-        <div
-          style={{
-            // transform: "rotate(90deg)", // Rotating to match Windows cursor
-            width: "24px",
-            height: "24px",
-          }}
-        >
-          <PenTool size={26} className="text-red-800 dark:text-red-300" />
-        </div>
-      </motion.div>
-    )
+        <PenTool size={26} className="text-red-800 dark:text-red-300" />
+      </div>
+    </motion.div>
   );
 };
 

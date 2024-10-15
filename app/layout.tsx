@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/main/navbar-top";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import DockFooter from "@/components/main/dock-footer";
+import DockFooter, { links } from "@/components/main/dock-footer";
 import CanvasCursor from "@/components/ui/canvas-cursor";
 import CustomCursor from "@/components/ui/cutom-cursor";
 
@@ -34,8 +34,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar />
-          <div className="">{children}</div>
+          <Navbar items={links} />
+          <div className="md:pb-24">{children}</div>
           <div className="md:fixed md:bottom-0 fixed bottom-[10vh] left-5 md:left-0 w-full z-[100]">
             <DockFooter />
           </div>

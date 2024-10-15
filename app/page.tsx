@@ -1,4 +1,4 @@
-import { HeroContent } from "@/components/sections/HeroContent";
+import { HeroContent } from "@/components/homeSection/HeroContent";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export default function Home() {

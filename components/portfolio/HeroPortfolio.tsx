@@ -8,14 +8,13 @@ import { motion } from "framer-motion";
 
 const HeroPortfolio = () => {
   return (
-    <section>
-      <div className="container flex flex-col-reverse justify-center mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-        {/* Animated Left Side Text Content */}
+    <div>
+      <section className="container flex flex-col-reverse h-screen justify-center mx-auto lg:flex-row lg:justify-between">
         <motion.div
-          className="flex flex-col justify-center text-center rounded-sm lg:text-left lg:mt-20 mt-0"
-          initial={{ opacity: 0, x: -100 }} // Start with hidden and slide from left
-          animate={{ opacity: 1, x: 0 }} // Animate to visible and no translation
-          transition={{ duration: 1 }} // Animation duration
+          className="flex flex-col justify-center text-center rounded-sm lg:text-left lg:mt-14 mt-0"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
         >
           <h1 className="text-3xl font-bold !leading-snug sm:text-5xl">
             Siddhartha Singh,
@@ -31,7 +30,7 @@ const HeroPortfolio = () => {
             Scroll down and check out my work, or contact me
           </motion.p>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-            <Link href="#">
+            <Link href="/portfolio/contact">
               <motion.button
                 className="group relative inline-flex h-[calc(48px+8px)] min-w-[200px] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50"
                 initial={{ scale: 0.8 }}
@@ -49,11 +48,10 @@ const HeroPortfolio = () => {
           </div>
         </motion.div>
 
-        {/* Animated Image */}
         <motion.div
           className="flex items-center justify-center lg:mt-8 h-full"
-          initial={{ opacity: 0, scale: 0.8 }} // Start small and hidden
-          animate={{ opacity: 1, scale: 1 }} // Animate to full size and visible
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
           <Image
@@ -64,8 +62,8 @@ const HeroPortfolio = () => {
             className="object-contain h-[50vh] "
           />
         </motion.div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
