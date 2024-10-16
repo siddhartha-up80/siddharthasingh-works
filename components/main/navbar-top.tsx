@@ -25,7 +25,11 @@ export default function Navbar({
     >
       <div className="px-3 mx-auto flex justify-between items-center py-1 font-medium">
         {/* <Logo /> */}
-        <div className="capitalize">{pathname.split("/")[1] || ""}</div>
+        <div className="capitalize flex gap-1 flex-wrap">
+          {pathname?.split("/")?.map((item, index) => {
+            return <span key={index}>{index > 1 ? ": " + item : item}</span>;
+          })}
+        </div>
 
         <div className="flex gap-1 justify-self-end">
           <ThemeToggle />

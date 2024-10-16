@@ -11,7 +11,10 @@ const Page = () => {
       <HeroPortfolio />
       <About />
       <QuickProjects />
-      <QuickLinks />
+      <QuickLinks
+        forwardLink={`/portfolio/about`}
+        forwardLinkText="View More About Me"
+      />
     </div>
   );
 };
