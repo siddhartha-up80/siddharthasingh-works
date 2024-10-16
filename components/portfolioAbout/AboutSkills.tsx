@@ -12,6 +12,7 @@ import {
   IconBrandTypescript,
 } from "@tabler/icons-react";
 import { TerminalIcon, TerminalSquareIcon } from "lucide-react";
+import { LinkPreview } from "../ui/link-preview";
 
 export default function AboutSkills() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,34 +31,59 @@ export default function AboutSkills() {
     >
       <div className="flex h-full w-full flex-col items-stretch justify-between gap-10">
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div1Ref} className="h-max w-max p-4">
-            <IconBrandTypescript size={90} className="text-red-500" />
-          </Circle>
-          <Circle ref={div5Ref} className="h-max w-max  p-4">
-            <IconBrandTailwind size={90} className="text-red-500" />
-          </Circle>
+          <LinkPreview url="https://www.typescriptlang.org/">
+            <Circle ref={div1Ref} className="md:h-max md:w-max md:p-4 p-2">
+              <IconBrandTypescript size={65} className="text-red-500" />
+            </Circle>
+          </LinkPreview>
+
+          <LinkPreview url="https://tailwindcss.com/">
+            <Circle ref={div5Ref} className="md:h-max md:w-max md:p-4 p-2">
+              <IconBrandTailwind size={65} className="text-red-500" />
+            </Circle>
+          </LinkPreview>
         </div>
+
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div2Ref} className="h-max w-max  p-4">
-            <IconBrandFramerMotion size={90} className="text-red-500" />
-          </Circle>
-          <Circle ref={div4Ref} className="h-max w-max p-4">
-            <TerminalSquareIcon size={50} className="text-red-500" />
-            <span className="text-2xl font-semibold text-black">
+          <LinkPreview url="https://www.framer.com/motion/">
+            <Circle ref={div2Ref} className="md:h-max md:w-max md:p-4 p-2">
+              <IconBrandFramerMotion size={65} className="text-red-500" />
+            </Circle>
+          </LinkPreview>
+
+          <Circle ref={div4Ref} className="h-max w-max md:p-4 p-2">
+            <TerminalSquareIcon
+              size={35}
+              className="text-red-500 hidden md:block"
+            />
+            <TerminalSquareIcon
+              size={20}
+              className="text-red-500 md:hidden block"
+            />
+            <span className="md:text-2xl font-semibold text-black md:ml-1">
               My Latest Skills
             </span>
           </Circle>
-          <Circle ref={div6Ref} className="h-max w-max  p-4">
-            <IconBrandReact size={90} className="text-red-500" />
-          </Circle>
+
+          <LinkPreview url="https://react.dev/">
+            <Circle ref={div6Ref} className="md:h-max md:w-max md:p-4 p-2">
+              <IconBrandReact size={65} className="text-red-500" />
+            </Circle>
+          </LinkPreview>
         </div>
+
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={div3Ref} className="h-max w-max  p-4">
-            <IconBrandNextjs size={90} className="text-red-500" />
-          </Circle>
-          <Circle ref={div7Ref} className="h-max w-max  p-4">
-            <IconBrandJavascript size={90} className="text-red-500" />
-          </Circle>
+          <LinkPreview url="https://nextjs.org/">
+            <Circle ref={div3Ref} className="md:h-max md:w-max md:p-4 p-2">
+              <IconBrandNextjs size={65} className="text-red-500" />
+            </Circle>
+          </LinkPreview>
+
+          <LinkPreview url="https://www.javascript.com/">
+            <Circle ref={div7Ref} className="md:h-max md:w-max md:p-4 p-2">
+              <IconBrandJavascript size={65} className="text-red-500" />
+            </Circle>
+          </LinkPreview>
         </div>
       </div>
 
