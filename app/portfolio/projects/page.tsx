@@ -1,9 +1,14 @@
-import React from 'react'
+import AllProjects from "@/components/portfolioProjects/AllProjects";
+import ProjectsHero from "@/components/portfolioProjects/ProjectsHero";
+import React from "react";
 
 const Page = () => {
   return (
-    <div>Page</div>
-  )
-}
+    <div className="space-y-10">
+      <ProjectsHero />
+      <AllProjects />
+    </div>
+  );
+};
 
-export default Page
+export default Page;
