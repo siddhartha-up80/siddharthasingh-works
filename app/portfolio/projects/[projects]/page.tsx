@@ -43,11 +43,9 @@ const Page = ({ params, searchParams }: any) => {
               <div className="flex mt-5">
                 <span className="font-semibold text-xl ">{info?.tech}</span>
               </div>
-              <div className="mt-6 md:mt-0">
+              <div className="mt-6">
                 <Link href={info?.link || "/projects"}>
-                  <Button className="text-white bg-black border-0 py-2 px-8  rounded text-lg md:mt-10 sm:mt-0 w-full font-semibold">
-                    View
-                  </Button>
+                  <Button className="w-full">View</Button>
                 </Link>
               </div>
             </div>

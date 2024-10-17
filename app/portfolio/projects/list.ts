@@ -65,7 +65,7 @@ const list = [
     type: "Full Stack",
     tech: "Next.js 13.1, React, Tailwind, DaisyUI, MongoDB",
     slug: "swarnalehenga",
-    img: "https://source.unsplash.com/random/800x800/?saree",
+    img: "/images/swarnalehenga.png",
     description:
       "An Indian Ethnic wear E-commerce web-app crafted with the brilliance of Next.js 13 Pages Directory.",
     details:
@@ -77,22 +77,22 @@ const list = [
     type: "Full Stack",
     tech: "Next.js 14, React, Tailwind, Material Tailwind UI, OpenAI API",
     slug: "blissinator",
-    img: "https://source.unsplash.com/random/800x500/?stress,rejection",
+    img: "/images/blissinator.png",
     description:
       "Mental Health Counselling website powered by the magic of Next.js 13 App router",
     details:
       "Blissinator is a transformative Mental Health Counseling website that harnesses the magic of Next.js 13 App Router. Designed to provide a supportive and accessible space for individuals seeking emotional well-being, Blissinator offers a range of counseling services and resources. Through intuitive navigation and user-friendly interfaces, visitors can explore personalized support options and connect with qualified professionals. With a focus on empathy and inclusivity, Blissinator empowers users to navigate life's challenges with resilience and grace. Experience the transformative power of mental health support with Blissinator, where healing begins with a click.",
     link: "https://blissinator.vercel.app/",
   },
-  // {
-  //   title: "Inator",
-  //   slug: "inator",
-  //   img: "https://source.unsplash.com/random/800x500/?coding",
-  //   description:
-  //     "A personal projects portfolio website that pushes the boundaries of design and technology with Next.js 13 App Router.",
-  // details: "",
-  //   link: "https://siddharthasingh.vercel.app/",
-  // },
+  {
+    title: "Inator",
+    slug: "inator",
+    img: "/images/portfolio.png",
+    description:
+      "A SEO optimized personal projects portfolio website that pushes the boundaries of SEO and technology with Next.js 13 App Router.",
+    details: "",
+    link: "https://siddharthasingh.vercel.app/",
+  },
   //  {
   //    title: "Managinator",
   //    img: "https://source.unsplash.com/random/800x500/?students,girl",
@@ -106,7 +106,7 @@ const list = [
     type: "Front-End",
     tech: "Next.js 13.2, React, Tailwind",
     slug: "plagiarisminator",
-    img: "https://source.unsplash.com/random/800x500/?text,books",
+    img: "/images/plagiarisminator.png",
     description:
       "Plagiarism checker web-app meticulously crafted with the power of React.",
     details:
@@ -118,7 +118,7 @@ const list = [
     type: "Full Stack",
     tech: "Next.js 14, React, Tailwind, Shadcn UI, OpenAI API, Clerk Auth, Prisma, MongoDB",
     slug: "ainator",
-    img: "https://source.unsplash.com/random/800x500/?notes,text",
+    img: "/images/ainator.png",
     description:
       "A Note-taking ai powerd web-app that leverages chatgpt api for note-taking. ",
     details:

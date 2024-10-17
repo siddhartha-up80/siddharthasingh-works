@@ -8,7 +8,7 @@ import {
   IconTerminal,
   IconTerminal2,
 } from "@tabler/icons-react";
-import { Code, Instagram, Linkedin, Mail, User } from "lucide-react";
+import { Code, Instagram, Linkedin, Mail, Newspaper, User } from "lucide-react";
 
 export const links = [
   {
@@ -32,6 +32,13 @@ export const links = [
     title: "Projects",
     icon: <Code className="h-full w-full text-red-500 dark:text-red-300" />, // Code icon for Projects
     href: "/portfolio/projects",
+  },
+  {
+    title: "Resume",
+    icon: (
+      <Newspaper className="h-full w-full text-red-500 dark:text-red-300" />
+    ),
+    href: "https://drive.google.com/file/d/1o120BxSp6esypJp8SvdpDE-F-8HYTzEO/view",
   },
   {
     title: "Contact",

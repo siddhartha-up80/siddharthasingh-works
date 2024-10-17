@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "lucide-react";
 
 export function HeroContent() {
   return (
@@ -33,13 +39,13 @@ export function HeroContent() {
             width={1000}
             src="/images/siddharthacircle.png"
             alt="Portfolio Image"
-            className="object-contain h-[25vh] "
+            className="object-contain w-[25vh] "
           />
         </motion.div>
         <span className="leading-relaxed md:text-2xl text-xl lg:leading-loose font-normal">
           Hi! This is Siddhartha Singh
         </span>
-        <Highlight className="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl">
+        <Highlight className="text-black dark:text-white text-2xl md:text-4xl lg:text-5xl md:px-5">
           <span className="leading-relaxed lg:leading-relaxed">
             Crafting Engaging Interfaces
           </span>
@@ -62,12 +68,12 @@ export function HeroContent() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="flex justify-center mt-8 max-w-4xl mx-auto"
+        className="flex flex-col gap-10 justify-center mt-8 max-w-4xl mx-auto"
       >
         <div className="gap-10 justify-center items-center flex flex-col md:flex-row">
-          <Link href={`/`}>
-            <button className="group relative inline-flex h-[calc(48px+8px)] w-[200px] bg-gradient-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#c0c7ff] to-[#4c64ff] border-2 border-[#656fe2] items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50">
-              <span className="z-10 pr-2">Social Profiles</span>
+          <Link href={`/portfolio/contact`}>
+            <button className="group relative inline-flex h-[calc(48px+8px)] w-[210px] bg-gradient-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#c0c7ff] to-[#4c64ff] border-2 border-[#656fe2] items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50">
+              <span className="z-10 pr-2">Contact Profiles</span>
               <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#5052e7] bg-[#2b2da0] transition-[width] group-hover:w-[calc(100%-8px)]">
                 <div className="mr-3.5 flex items-center justify-center">
                   <svg
@@ -114,6 +120,62 @@ export function HeroContent() {
               </div>
             </button>
           </Link>
+        </div>{" "}
+        <div className="md:hidden">
+          <ul className="flex justify-center items-center flex-row flex-wrap gap-8 mt-2 dark:text-white">
+            {[
+              {
+                href: "https://www.instagram.com/sid_up80",
+                icon: <InstagramIcon size={50} />,
+              },
+              {
+                href: "https://github.com/siddhartha-up80",
+                icon: <GithubIcon size={50} />,
+              },
+              {
+                href: "https://twitter.com/siddhartha_up80",
+                icon: <TwitterIcon size={50} />,
+              },
+
+              {
+                href: "https://www.linkedin.com/in/siddhartha-singh-work",
+                icon: <LinkedinIcon size={50} />,
+              },
+            ].map((link, index) => (
+              <motion.li
+                key={index}
+                whileHover={{
+                  scale: 1.3,
+                  rotate: [0, 10, -10, 0],
+                }}
+                whileTap={{ scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 10,
+                }}
+                className="social-icons"
+              >
+                <Link
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour text-3xl flex gap-1 flex-col items-center"
+                >
+                  {link.icon}
+                  {link.href.includes("instagram") ? (
+                    <span className="text-sm">Instagram</span>
+                  ) : link.href.includes("github") ? (
+                    <span className="text-sm">Github</span>
+                  ) : link.href.includes("twitter") ? (
+                    <span className="text-sm">Twitter</span>
+                  ) : (
+                    <span className="text-sm">Linkedin</span>
+                  )}
+                </Link>
+              </motion.li>
+            ))}
+          </ul>
         </div>
       </motion.div>
     </section>

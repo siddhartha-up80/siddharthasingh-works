@@ -23,8 +23,7 @@ const AllProjects = () => {
     <>
       {/* Projects */}
       <div className="mx-auto my-10 w-full">
-        <div className="text-2xl text-center mt-10">ALL OF MY PROJECTS</div>
-        <div className="flex h-full gap-3 flex-wrap justify-center items-center">
+        <div className="flex h-full gap-3 flex-wrap justify-center items-center md:p-0 p-2">
           {list.map((item, index) => (
             <CardContainer className="inter-var h-full" key={index}>
               <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-full rounded-xl p-6 border  ">
