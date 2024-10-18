@@ -78,7 +78,7 @@ export const links = [
     icon: (
       <IconTerminal className="h-full w-full text-red-500 dark:text-red-300" />
     ),
-    href: "https://siddharthasingh.me",
+    href: "https://siddharthasingh.vercel.app",
   },
 ];
 

@@ -24,7 +24,7 @@ export function AboutTimeline() {
               className="rounded-md"
             />
           </div>
-          <p className="mt-4 text-center">
+          <p className="mt-4 text-center text-xs md:text-base">
             Implementation of Next.js in an existing ReactJS project, adding
             features, optimizing performance and scalability. Integrated OpenAI
             APIs, enhancing generative AI functionality for dynamic responses.
@@ -49,7 +49,7 @@ export function AboutTimeline() {
             />
           </div>
 
-          <p className="mt-4 text-center">
+          <p className="mt-4 text-center text-xs md:text-base">
             B.Tech in Electronics and Communication Engineering from Vellore
             Institute of Technology, Bhopal, Madhya Pradesh
           </p>
@@ -70,7 +70,7 @@ export function AboutTimeline() {
               className="rounded-md"
             />
           </div>
-          <p className="mt-4 text-center text-white">
+          <p className="mt-4 text-center text-white text-xs md:text-base">
             Completed Class 12 under the Central Board of Secondary Education
             (CBSE) from Vijaya International School, Agra, Uttar Pradesh
           </p>
@@ -91,7 +91,7 @@ export function AboutTimeline() {
               className="rounded-md"
             />
           </div>
-          <p className="mt-4 text-center">
+          <p className="mt-4 text-center text-xs md:text-base">
             Completed Class 10 under the Central Board of Secondary Education
             (CBSE) from Kendriya Vidyalaya No.3 Agra Cantt, Uttar Pradesh
           </p>
