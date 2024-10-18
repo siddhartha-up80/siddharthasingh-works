@@ -13,7 +13,7 @@ export function AboutTimeline() {
     {
       title: "2024 - Next.js Front-End Intern, Tecnod8",
       content: (
-        <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-pink-800 text-white w-full shadow-xl hover:bg-pink-600 transition duration-500 ease-in-out transform hover:scale-105">
+        <WobbleCard containerClassName="col-span-1 lg:col-span-2 max-h-[50vh] md:h-full bg-pink-800 text-white w-full shadow-xl hover:bg-pink-600 transition duration-500 ease-in-out transform hover:scale-105">
           <div className="flex justify-center items-center w-full">
             {" "}
             <Image
@@ -37,7 +37,7 @@ export function AboutTimeline() {
       title:
         "2020-2024 - Bachelor of Technology, Vellore Institute of Technology",
       content: (
-        <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-blue-700 text-white shadow-xl hover:bg-blue-500 transition duration-500 ease-in-out transform hover:scale-105 w-full justify-center items-center flex">
+        <WobbleCard containerClassName="col-span-1 lg:col-span-2 max-h-[50vh] md:h-full bg-blue-700 text-white shadow-xl hover:bg-blue-500 transition duration-500 ease-in-out transform hover:scale-105 w-full justify-center items-center flex">
           <div className="flex justify-center items-center w-full">
             {" "}
             <Image
@@ -59,7 +59,7 @@ export function AboutTimeline() {
     {
       title: "2019 - Class 12, Vijaya International School",
       content: (
-        <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-yellow-600 text-black min-h-[500px] lg:min-h-[300px] shadow-xl hover:bg-yellow-400 transition duration-500 ease-in-out transform hover:scale-105">
+        <WobbleCard containerClassName="col-span-1 lg:col-span-2 max-h-[50vh] md:h-full bg-yellow-600 text-black min-h-[500px] lg:min-h-[300px] shadow-xl hover:bg-yellow-400 transition duration-500 ease-in-out transform hover:scale-105">
           <div className="flex justify-center items-center w-full text-white">
             {" "}
             <Image
@@ -80,7 +80,7 @@ export function AboutTimeline() {
     {
       title: "2017 - Class 10, Kendriya Vidyalaya No. 3",
       content: (
-        <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-red-600 text-white min-h-[500px] lg:min-h-[300px] shadow-xl hover:bg-red-400 transition duration-500 ease-in-out transform hover:scale-105">
+        <WobbleCard containerClassName="col-span-1 lg:col-span-2 max-h-[50vh] md:h-full bg-red-600 text-white min-h-[500px] lg:min-h-[300px] shadow-xl hover:bg-red-400 transition duration-500 ease-in-out transform hover:scale-105">
           <div className="flex justify-center items-center w-full">
             {" "}
             <Image

@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { TextGenerateEffect } from "../ui/text-generate-effect";
 
 const HeroPortfolio = () => {
   return (
@@ -16,11 +17,16 @@ const HeroPortfolio = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="text-3xl font-bold !leading-snug sm:text-5xl">
+          <div className="text-3xl font-bold !leading-snug sm:text-5xl">
             Siddhartha Singh,
-            <span className="text-rose-600"> Next.js</span> Enthusiast,
-            Full-Stack Apprentice, and Crafting Engaging Interfaces
-          </h1>
+            <span className="text-rose-600"> Next.js</span>
+            <TextGenerateEffect
+              words={`Enthusiast, Full-Stack Apprentice, and Crafting Engaging Interfaces`}
+              filter={false}
+              duration={3}
+              className=""
+            />
+          </div>
           <motion.p
             className="mt-6 mb-8 text-lg sm:mb-12"
             initial={{ opacity: 0, y: 20 }}

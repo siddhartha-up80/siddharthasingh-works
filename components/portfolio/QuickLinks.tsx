@@ -48,7 +48,7 @@ const QuickLinks = ({
             >
               <ArrowLeft />
             </motion.div>
-            <div className="inline-flex whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100">
+            <div className="md:inline-flex hidden whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100">
               Go Back
             </div>
           </button>
@@ -60,7 +60,7 @@ const QuickLinks = ({
         >
           <Link href={forwardLink}>
             <button className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r dark:from-[#410707] dark:to-[#812626] from-[#ffc0c0] to-[#ff4c4c] font-medium text-neutral-200 border-2 border-[#e26565] transition-all duration-300 hover:w-60">
-              <div className="inline-flex whitespace-nowrap opacity-0 transition-all duration-200  group-hover:opacity-100">
+              <div className="md:inline-flex hidden whitespace-nowrap opacity-0 transition-all duration-200  group-hover:opacity-100">
                 {forwardLinkText}
               </div>
               <motion.div

@@ -24,9 +24,9 @@ const ProjectsHero = () => {
         <h1 className={cn("md:text-4xl text-xl text-white relative z-20")}>
           Projects Showcase
         </h1>
-        <p className="text-center mt-2 text-neutral-300 relative z-20">
+        <div className="text-center mt-2 text-neutral-300 relative z-20">
           <FlipWords words={words} /> <br />
-        </p>
+        </div>
       </div>
     </div>
   );

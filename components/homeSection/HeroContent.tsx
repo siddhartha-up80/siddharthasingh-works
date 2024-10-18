@@ -9,6 +9,7 @@ import {
   LinkedinIcon,
   TwitterIcon,
 } from "lucide-react";
+import { TextGenerateEffect } from "../ui/text-generate-effect";
 
 export function HeroContent() {
   return (
@@ -23,10 +24,10 @@ export function HeroContent() {
           y: [20, -5, 0],
         }}
         transition={{
-          duration: 0.5,
+          duration: 3,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="text-2xl px-4 md:text-3xl lg:text-4xl font-bold text-neutral-700 dark:text-white max-w-4xl flex-col flex gap-4 text-center mx-auto"
+        className="text-2xl px-4 md:text-3xl lg:text-4xl font-bold text-neutral-700 dark:text-white max-w-4xl flex-col flex md:gap-4 gap-2 text-center mx-auto"
       >
         <motion.div
           className="flex items-center justify-center h-max"
@@ -51,7 +52,11 @@ export function HeroContent() {
           </span>
         </Highlight>{" "}
         <span className="text-xl !leading-normal font-normal">
-          Explore my work and social profiles and get out of the matrix
+          <TextGenerateEffect
+            words={`Explore my work and social profiles and get out of the matrix`}
+            filter={false}
+            duration={3}
+          />
         </span>
       </motion.h1>
 
@@ -65,12 +70,12 @@ export function HeroContent() {
           y: [20, -5, 0],
         }}
         transition={{
-          duration: 0.5,
+          duration: 3,
           ease: [0.4, 0.0, 0.2, 1],
         }}
         className="flex flex-col gap-10 justify-center mt-8 max-w-4xl mx-auto"
       >
-        <div className="gap-10 justify-center items-center flex flex-col md:flex-row">
+        <div className="md:gap-10 gap-6 justify-center items-center flex flex-col md:flex-row">
           <Link href={`/portfolio/contact`}>
             <button className="group relative inline-flex h-[calc(48px+8px)] w-[210px] bg-gradient-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#c0c7ff] to-[#4c64ff] border-2 border-[#656fe2] items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50">
               <span className="z-10 pr-2">Contact Profiles</span>
@@ -122,7 +127,7 @@ export function HeroContent() {
           </Link>
         </div>{" "}
         <div className="md:hidden">
-          <ul className="flex justify-center items-center flex-row flex-wrap gap-8 mt-2 dark:text-white">
+          <ul className="flex justify-center items-center flex-row flex-wrap gap-8 dark:text-white">
             {[
               {
                 href: "https://www.instagram.com/sid_up80",

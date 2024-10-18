@@ -10,7 +10,7 @@ import Link from "next/link";
 const About = () => {
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   const containerVariants = {
