@@ -41,7 +41,7 @@ const About = () => {
       <>
         <section
           ref={ref}
-          className="flex justify-between items-center min-h-[90vh] flex-col md:flex-row md:max-w-[80vw] mx-auto"
+          className="flex justify-between items-center min-h-[90vh] flex-col md:flex-row md:max-w-[80vw] mx-auto overflow-hidden"
         >
           <motion.div
             variants={imageVariants}
