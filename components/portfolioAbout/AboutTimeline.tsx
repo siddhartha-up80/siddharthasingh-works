@@ -11,7 +11,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 export function AboutTimeline() {
   const data = [
     {
-      title: "2024 - Next.js Front-End Intern, Tecnod8",
+      title: "2024 - Next.js Developer, Tecnod8",
       content: (
         <WobbleCard containerClassName="col-span-1 lg:col-span-2 md:max-h-full max-h-[50vh] md:h-full bg-pink-800 text-white w-full shadow-xl hover:bg-pink-600 transition duration-500 ease-in-out transform hover:scale-105">
           <div className="flex justify-center items-center w-full">

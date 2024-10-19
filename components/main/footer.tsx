@@ -28,16 +28,21 @@ export default function Footer() {
       (entries) => {
         if (entries[0].isIntersecting) {
           controls.start("visible");
+        } else {
+          controls.start("hidden");
         }
       },
       { threshold: 0.2 }
     );
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
+
+    const footerElement = footerRef.current;
+    if (footerElement) {
+      observer.observe(footerElement);
     }
+
     return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
+      if (footerElement) {
+        observer.unobserve(footerElement);
       }
     };
   }, [controls]);

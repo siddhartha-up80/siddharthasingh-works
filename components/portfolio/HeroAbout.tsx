@@ -64,24 +64,20 @@ const About = () => {
             animate={inView ? "visible" : "hidden"}
           >
             <motion.p variants={containerVariants}>
-              A Next.js full-stack web developer, with a strong inclination
-              towards challenging projects, designing and developing web
-              applications. My Primary tech stack includes{" "}
+              A Next.js developer, with a strong inclination towards challenging
+              projects, designing and developing web applications. My Primary
+              tech stack includes{" "}
               <span className="text-red-900 dark:text-red-200">
                 Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.
               </span>
             </motion.p>
 
             <motion.p variants={containerVariants}>
-              I am a{" "}
-              <span className="text-red-900 dark:text-red-200">
-                final-year student at Vellore Institute of Technology, Bhopal
+              Graduated from
+              <span className="text-red-900 dark:text-red-200 mx-1">
+                Vellore Institute of Technology, Bhopal
               </span>
-              , pursuing Bachelor of Technology in ECE. I am always open to
-              opportunities in which I can harness my skills and would{" "}
-              <span className="text-red-900 dark:text-red-200">
-                love to collaborate on projects.
-              </span>
+              with Bachelor of Technology in ECE.
             </motion.p>
 
             <Link href={`/portfolio/about`} className="w-full">

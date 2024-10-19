@@ -4,6 +4,15 @@ import list from "../list";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:
+    "Siddhartha Singh | Projects | Next.js Developer | Full Stack Developer | Inators Portfolio",
+  description:
+    "Check out all the projects by Siddhartha Singh. I am a Next.js full-stack web developer with a strong inclination towards challenging projects, designing and developing web applications. My primary tech stack includes Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.",
+};
+
 const Page = ({ params, searchParams }: any) => {
   const info = list.find((inator) => inator.slug === params.projects);
 

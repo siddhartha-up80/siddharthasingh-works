@@ -54,7 +54,7 @@ export default function index(): JSX.Element {
     <ReactLenis root>
       <main className="" ref={container}>
         <section className="text-white w-full">
-          <h1 className="text-center text-black relative top-10 text-2xl md:text-3xl font-medium uppercase">
+          <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-3xl font-medium uppercase">
             Quick Projects
           </h1>
 
