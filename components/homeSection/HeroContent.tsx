@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import Link from "next/link";
@@ -50,10 +51,10 @@ export function HeroContent() {
           <span className="leading-relaxed lg:leading-relaxed">
             Crafting Engaging Interfaces
           </span>
-        </Highlight>{" "}
+        </Highlight>
         <span className="text-xl !leading-normal font-normal">
           <TextGenerateEffect
-            words={`Explore my work and social profiles and get out of the matrix`}
+            words={`Explore my work and social profiles, and get out of the matrix`}
             filter={false}
             duration={3}
           />

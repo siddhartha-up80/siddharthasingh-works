@@ -9,9 +9,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LinkPreview } from "../ui/link-preview";
+
 const projects = [
   {
-    title: "Inators UI",
+    title: "Inators UI: Next.js Components Library for Developers",
     description:
       "Inators UI is a frontend components library for developers and designers to make creating nextjs client side as well as server side interfaces easier. Based on Tailwind and Shadcn/ui for just copy and use, with more than 150+ components to choose from.",
     link: "/images/inatorsui.png",
@@ -19,7 +20,7 @@ const projects = [
     projectLink: "https://inatorsui.vercel.app",
   },
   {
-    title: "Next Inator",
+    title: "Next Inator: Custom Data AI Chat Web-App",
     description:
       "Next Inator is a web app built in Next.js 14, it is an open-ai based custom data based AI chat web-app, powered by open-ai api and pinecone vector database. Users can add their own data, and chat with the data, to get personalized responses. It is a great tool for content creators, marketers, students, and anyone who wants to get personalized responses from ai chatbots.",
     link: "/images/nextinator.png",
@@ -27,7 +28,7 @@ const projects = [
     projectLink: "https://nextinator.vercel.app",
   },
   {
-    title: "Ethnic Inator",
+    title: "Ethnic Inator: Indian Ethnic Wear E-Commerce Web-App",
     description:
       "A feature-rich indian ethnic wear e-commerce website using Next.js 14, featuring functionalities like Add to Cart, Filtering, and Content Management System and payment system using stripe. With next.js server-side components from Next.js 14 app router, ensuring an optimal user experience and strong SEO performance.",
     link: "/images/ethnicinator.png",
@@ -35,12 +36,20 @@ const projects = [
     projectLink: "https://ethnicinator.vercel.app",
   },
   {
-    title: "Optiflow Inator",
+    title: "Optiflow Inator: Code Optimization Community Web-App",
     description:
       "Optiflowinator is a Multiuser Next.js 14 app-directory based application, incorporating the Open-AI API to create, optimize and share code posts within a community feed. With a secure Google authentication using Next Auth, providing multiple login options.",
     link: "/images/optiflowinator.png",
     color: "#15A34A",
     projectLink: "https://optiflowinator.vercel.app",
+  },
+  {
+    title: "Inators UI 2.0 (Upcoming): Framer-motion based Animated Next.js Components Library",
+    description:
+      "Inators UI 2.0 is an upcoming version of the Inators UI library, featuring modern animated components built with Framer Motion for enhanced interactivity and user experience.",
+    link: "/images/inatorsui.png",
+    color: "#0E1929",
+    projectLink: "https://inatorsui.vercel.app",
   },
 ];
 
