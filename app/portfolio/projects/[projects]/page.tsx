@@ -6,11 +6,48 @@ import { Button } from "@/components/ui/button";
 
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title:
-    "Siddhartha Singh | Projects | Next.js Developer | Full Stack Developer | Inators Portfolio",
-  description:
-    "Check out all the projects by Siddhartha Singh. I am a Next.js full-stack web developer with a strong inclination towards challenging projects, designing and developing web applications. My primary tech stack includes Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.",
+// const list = [
+//   {
+//     title: "Inators UI",
+//     type: "Full Stack",
+//     tech: "Next.js 14, React, Tailwind, Shadcn UI",
+//     slug: "inators-ui",
+//     img: "/images/inatorsui.png",
+//     description:
+//       "UI components library based on shadcn-ui and tailwind for developers and designers to make creating nextjs client side as well as server side interfaces easier.",
+//     details:
+//       "Inators UI is a comprehensive UI components library designed to streamline the process of creating interfaces using Next.js. Built upon shadcn-ui and Tailwind CSS, it offers a rich collection of components for both client-side and server-side rendering, catering to the needs of developers and designers alike. By leveraging the power of Next.js, it facilitates the seamless integration of these components into projects, enhancing efficiency and productivity. With its user-friendly interface and versatile features, Inators UI empowers teams to build dynamic and visually appealing web applications with ease.",
+//     link: "https://inatorsui.vercel.app/",
+//   },
+
+export const generateMetadata = ({ params }: any): Metadata => {
+  const info = list.find((inator) => inator.slug === params.projects);
+  return {
+    title:
+      "Siddhartha Singh Projects | " + info?.title ||
+      "Project Details" + " | Portfolio Next.js Developer",
+    description:
+      info?.description ||
+      "Project details" +
+        " | This is Siddhartha Singh A Next.js Full-Stack web developer, with a strong inclination towards challenging projects",
+    openGraph: {
+      title: info?.title || "Project",
+      description:
+        info?.description ||
+        "Project details" +
+          " | This is Siddhartha Singh A Next.js Full-Stack web developer, with a strong inclination towards challenging projects",
+      images: [
+        {
+          url:
+            info?.img ||
+            "https://www.siddharthasingh.me/_next/image?url=%2Fimages%2Fsiddharthacircle.png&w=1080&q=75",
+          width: 800,
+          height: 500,
+          alt: info?.title || "Project Image",
+        },
+      ],
+    },
+  };
 };
 
 const Page = ({ params, searchParams }: any) => {

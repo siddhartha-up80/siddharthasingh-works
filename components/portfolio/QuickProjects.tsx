@@ -44,7 +44,8 @@ const projects = [
     projectLink: "https://optiflowinator.vercel.app",
   },
   {
-    title: "Inators UI 2.0 (Upcoming): Framer-motion based Animated Next.js Components Library",
+    title:
+      "Inators UI 2.0 (Upcoming): Framer-motion based Animated Next.js Components Library",
     description:
       "Inators UI 2.0 is an upcoming version of the Inators UI library, featuring modern animated components built with Framer Motion for enhanced interactivity and user experience.",
     link: "/images/inatorsui.png",
@@ -153,7 +154,8 @@ export const Card: React.FC<CardProps> = ({
                   )}
                   type="button"
                 >
-                  Visit {title} <ArrowRight className="mt-1 ml-1" />
+                  Visit {title.split(":")[0]}
+                  <ArrowRight className="mt-1 ml-1" />
                 </button>
               </LinkPreview>
             </span>

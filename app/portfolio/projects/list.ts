@@ -93,14 +93,7 @@ const list = [
     details: "",
     link: "https://siddharthasingh.vercel.app/",
   },
-  //  {
-  //    title: "Managinator",
-  //    img: "https://source.unsplash.com/random/800x500/?students,girl",
-  //    description:
-  //      "A student personal information web-app crafted with the brilliance of React.",
-  // details: "",
-  //    link: "https://managinator.vercel.app/",
-  //  },
+  
   {
     title: "Plagiarisminator",
     type: "Front-End",
