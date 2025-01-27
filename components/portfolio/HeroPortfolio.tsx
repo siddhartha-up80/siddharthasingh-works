@@ -19,13 +19,15 @@ const HeroPortfolio = () => {
         >
           <div className="text-3xl font-bold !leading-snug sm:text-5xl">
             Siddhartha Singh,
-            <span className="text-rose-600"> Next.js</span>
-            <TextGenerateEffect
-              words={`Enthusiast, Full-Stack Apprentice, and Crafting Engaging Interfaces`}
-              filter={false}
-              duration={3}
-              className=""
-            />
+            <br />
+            <span>
+              <TextGenerateEffect
+                words={`Next.js Enthusiast and Crafting Engaging Interfaces`}
+                filter={false}
+                duration={3}
+                className=""
+              />
+            </span>
           </div>
           <motion.p
             className="mt-6 mb-8 text-lg sm:mb-12"

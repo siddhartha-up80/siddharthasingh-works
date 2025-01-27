@@ -8,13 +8,121 @@ import {
   GithubIcon,
   InstagramIcon,
   LinkedinIcon,
+  MoreVerticalIcon,
+  Share,
+  Share2Icon,
   TwitterIcon,
 } from "lucide-react";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
+import {
+  AnimatedModal,
+  AnimatedModalContent,
+  AnimatedModalFooter,
+} from "../ui/animated-modal";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { useToast } from "@/hooks/use-toast";
 
 export function HeroContent() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState<any>(null);
+  const { toast } = useToast();
+
+  const avatarUrl = "/images/siddharthacircle.png";
+  const socialButtons = [
+    {
+      label: "Share",
+      image: "/images/share.png",
+      profileName: "Share",
+      profileImage: "/images/siddharthacircle.png",
+      onClick: () => {
+        navigator.clipboard.writeText("https://siddharthasingh.me");
+        toast({
+          title: "Link Copied",
+          description: "Link copied to clipboard",
+        });
+      },
+
+      button: false,
+    },
+    {
+      label: "Instagram",
+      image: "/images/instagram.png",
+      profileImage: "/images/siddharthacircle.png",
+      profileName: "sid_up80",
+      onClick: () =>
+        window.open("https://www.instagram.com/sid_up80", "_blank"),
+      button: true,
+    },
+    {
+      label: "Github",
+      image: "/images/github.png",
+      profileImage: "/images/siddharthacircle.png",
+      profileName: "siddhartha-up80",
+      onClick: () =>
+        window.open("https://github.com/siddhartha-up80", "_blank"),
+      button: true,
+    },
+    {
+      label: "Twitter",
+      image: "/images/x.png",
+      profileImage: "/images/siddharthacircle.png",
+      profileName: "siddhartha_up80",
+      onClick: () =>
+        window.open("https://twitter.com/siddhartha_up80", "_blank"),
+      button: true,
+    },
+    {
+      label: "Linkedin",
+      image: "/images/linkedin.png",
+      profileImage: "/images/siddharthacircle.png",
+      profileName: "siddhartha-singh-work",
+      onClick: () =>
+        window.open(
+          "https://www.linkedin.com/in/siddhartha-singh-work",
+          "_blank"
+        ),
+      button: true,
+    },
+    {
+      label: "Email",
+      image: "/images/email.png",
+      profileImage: "/images/siddharthacircle.png",
+      profileName: "siddhartha.singh3093@gmail.com",
+      onClick: () =>
+        window.open("mailto:siddharthasingh3093@gmail.com", "_blank"),
+      button: true,
+    },
+    {
+      label: "Portfolio",
+      image: "/images/terminal.png",
+      profileImage: "/images/siddharthacircle.png",
+      profileName: "https://siddharthasingh.me/portfolio",
+      onClick: () =>
+        window.open("https://siddharthasingh.me/portfolio", "_blank"),
+      button: true,
+    },
+  ];
+
   return (
     <section className="">
+      <button
+        className="dark:bg-white bg-black rounded-full p-2 fixed top-14 z-50 md:right-10 right-5"
+        title="share"
+        onClick={() => {
+          setIsModalOpen(true);
+          setModalContent("https://siddharthasingh.me");
+          navigator.clipboard.writeText("https://siddharthasingh.me");
+          toast({
+            title: "Link Copied",
+            description: "Link copied to clipboard",
+          });
+        }}
+      >
+        <Share2Icon size={25} className="dark:text-black text-white" />
+      </button>
+
       <motion.h1
         initial={{
           opacity: 0,
@@ -28,7 +136,7 @@ export function HeroContent() {
           duration: 3,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="text-2xl px-4 md:text-3xl lg:text-4xl font-bold text-neutral-700 dark:text-white max-w-4xl flex-col flex md:gap-4 gap-2 text-center mx-auto"
+        className="px-4 font-bold text-neutral-700 dark:text-white flex-col flex md:gap-4 gap-2 text-center mx-auto"
       >
         <motion.div
           className="flex items-center justify-center h-max"
@@ -41,24 +149,25 @@ export function HeroContent() {
             width={1000}
             src="/images/siddharthacircle.png"
             alt="Portfolio Image"
-            className="object-contain w-[25vh] "
+            className="object-contain w-[20vh] "
           />
         </motion.div>
-        <span className="leading-relaxed md:text-2xl text-xl lg:leading-loose font-normal">
-          Hi! This is Siddhartha Singh
-        </span>
-        <Highlight className="text-black dark:text-white text-2xl md:text-4xl lg:text-5xl md:px-5">
-          <span className="leading-relaxed lg:leading-relaxed">
-            Crafting Engaging Interfaces
-          </span>
+        <Highlight className="text-black dark:text-white md:px-5 w-max mx-auto">
+          <span className="font-semibold text-xl">Siddhartha Singh</span>
         </Highlight>
-        <span className="text-xl !leading-normal font-normal">
+        <span className="font-semibold -mt-2">
+          Follow me on all social media platforms
+        </span>
+
+        {/* <span className=" font-normal">
           <TextGenerateEffect
-            words={`Explore my work and social profiles, and get out of the matrix`}
+            words={`
+                Follow me on Instagram, Github, Twitter & Linkedin
+              `}
             filter={false}
             duration={3}
           />
-        </span>
+        </span> */}
       </motion.h1>
 
       <motion.div
@@ -74,116 +183,106 @@ export function HeroContent() {
           duration: 3,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="flex flex-col gap-10 justify-center mt-8 max-w-4xl mx-auto"
+        className="w-full mt-10"
       >
-        <div className="md:gap-10 gap-6 justify-center items-center flex flex-col md:flex-row">
-          <Link href={`/portfolio/contact`}>
-            <button className="group relative inline-flex h-[calc(48px+8px)] w-[210px] bg-gradient-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#c0c7ff] to-[#4c64ff] border-2 border-[#656fe2] items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50">
-              <span className="z-10 pr-2">Contact Profiles</span>
-              <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#5052e7] bg-[#2b2da0] transition-[width] group-hover:w-[calc(100%-8px)]">
-                <div className="mr-3.5 flex items-center justify-center">
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-white"
-                  >
-                    <path
-                      d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </button>
-          </Link>
-
-          <Link href={`/portfolio`}>
-            <button className="group relative inline-flex h-[calc(48px+8px)] w-[200px] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50">
-              <span className="z-10 pr-2">Explore Work</span>
-              <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#e75050] bg-[#a02b2b] transition-[width] group-hover:w-[calc(100%-8px)]">
-                <div className="mr-3.5 flex items-center justify-center">
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-white"
-                  >
-                    <path
-                      d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </button>
-          </Link>
-        </div>{" "}
-        <div className="md:hidden">
-          <ul className="flex justify-center items-center flex-row flex-wrap gap-8 dark:text-white">
-            {[
-              {
-                href: "https://www.instagram.com/sid_up80",
-                icon: <InstagramIcon size={50} />,
-              },
-              {
-                href: "https://github.com/siddhartha-up80",
-                icon: <GithubIcon size={50} />,
-              },
-              {
-                href: "https://twitter.com/siddhartha_up80",
-                icon: <TwitterIcon size={50} />,
-              },
-
-              {
-                href: "https://www.linkedin.com/in/siddhartha-singh-work",
-                icon: <LinkedinIcon size={50} />,
-              },
-            ].map((link, index) => (
-              <motion.li
-                key={index}
-                whileHover={{
-                  scale: 1.3,
-                  rotate: [0, 10, -10, 0],
-                }}
-                whileTap={{ scale: 0.9 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 10,
-                }}
-                className="social-icons"
-              >
-                <Link
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour text-3xl flex gap-1 flex-col items-center"
+        <div
+          className="
+        flex
+        flex-wrap
+        gap-4
+        md:gap-6
+        lg:gap-8
+        mx-auto
+        w-full
+        max-w-screen-lg
+        justify-center
+        "
+        >
+          {socialButtons.map((link, index) => (
+            <>
+              {link.button && (
+                <div
+                  className="cursor-pointer group !z-[1000] relative inline-flex h-[calc(48px+8px)] w-[80vw] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50  md:w-[calc(33.333%-100px)]"
+                  onClick={link.onClick}
                 >
-                  {link.icon}
-                  {link.href.includes("instagram") ? (
-                    <span className="text-sm">Instagram</span>
-                  ) : link.href.includes("github") ? (
-                    <span className="text-sm">Github</span>
-                  ) : link.href.includes("twitter") ? (
-                    <span className="text-sm">Twitter</span>
-                  ) : (
-                    <span className="text-sm">Linkedin</span>
-                  )}
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
+                  <div className="absolute left-1 inline-flex h-12 w-12 items-center justify-center rounded-full dark:bg-white bg-white ">
+                    <div className=" flex items-center justify-center">
+                      <Image
+                        src={link.image}
+                        alt={link.label}
+                        className="rounded-full size-10"
+                        width={100}
+                        height={100}
+                      />
+                    </div>
+                  </div>
+                  <span className="z-10 pr-2">{link.label}</span>
+                  <div
+                    className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#e75050] bg-[#a02b2b] transition-[width] group-hover:w-[calc(100%-8px)]"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="mr-3.5 flex items-center justify-center">
+                      <div
+                        onClick={() => {
+                          setIsModalOpen(true);
+                          setModalContent(link.profileName);
+                        }}
+                      >
+                        <MoreVerticalIcon className="size-4" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          ))}
         </div>
       </motion.div>
+
+      {isModalOpen && (
+        <AnimatedModal
+          open={isModalOpen}
+          onOpenChange={(val) => {
+            setIsModalOpen(val);
+            setModalContent(null);
+          }}
+        >
+          <AnimatedModalContent className="min-w-[40vw]">
+            <div className="flex flex-col items-center gap-4 py-6 bg-red-900 rounded-2xl">
+              <Avatar className="h-24 w-24">
+                <AvatarImage src={avatarUrl} />
+                <AvatarFallback>UN</AvatarFallback>
+              </Avatar>
+              <div className="text-center">
+                <h3 className="text-2xl font-semibold text-white">
+                  Siddhartha Singh
+                </h3>
+                <p className="text-sm text-muted-foreground text-white">
+                  {modalContent}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex mt-10 gap-6 flex-wrap w-full mx-auto justify-center items-center py-4">
+              {socialButtons.map((button) => (
+                <button
+                  className="flex items-center flex-col"
+                  onClick={button.onClick}
+                >
+                  <Image
+                    src={button.image}
+                    alt={button.label}
+                    className=" rounded-2xl size-14 bg-white dark:bg-white p-1"
+                    width={100}
+                    height={100}
+                  />
+                  {button.label}
+                </button>
+              ))}
+            </div>
+          </AnimatedModalContent>
+        </AnimatedModal>
+      )}
     </section>
   );
 }

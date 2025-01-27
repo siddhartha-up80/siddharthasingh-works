@@ -61,7 +61,7 @@ export default function AboutSkills() {
               className="text-red-500 md:hidden block"
             />
             <span className="md:text-2xl font-semibold text-black md:ml-1">
-              My Latest Skills
+              Tech Stack
             </span>
           </Circle>
 

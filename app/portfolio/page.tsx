@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Siddhartha Singh | Work Portfolio | Next.js Developer | Inators Portfolio",
   description:
-    "Siddhartha Singh Graduated from vit (vellore institute of technology) in 2024, I am a Next.js full-stack web developer with a strong inclination towards challenging projects, designing and developing web applications. My primary tech stack includes Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.",
+    "Siddhartha Singh Graduated from vit (vellore institute of technology) in 2024, I am a Next.js web developer with a strong inclination towards challenging projects, designing and developing web applications. My primary tech stack includes Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.",
 };
 
 const Page = () => {

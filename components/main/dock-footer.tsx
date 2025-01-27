@@ -73,13 +73,6 @@ export const links = [
     ),
     href: "https://github.com/siddhartha-up80",
   },
-  {
-    title: "Classic Portfolio",
-    icon: (
-      <IconTerminal className="h-full w-full text-red-500 dark:text-red-300" />
-    ),
-    href: "https://siddharthasingh.vercel.app",
-  },
 ];
 
 const DockFooter = ({ className }: { className?: string }) => {

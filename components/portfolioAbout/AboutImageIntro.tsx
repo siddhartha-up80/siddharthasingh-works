@@ -42,13 +42,13 @@ export function AboutImageIntro() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="h-full md:h-[60vh] relative w-full overflow-hidden bg-gradient-to-b from-purple-800 via-pink-500 to-red-400 flex flex-col items-center justify-center"
+      className="h-full md:h-[40vh] relative w-full overflow-hidden bg-gradient-to-b from-purple-800 via-pink-500 to-red-400 flex flex-col items-center justify-center"
     >
       {/* Gradient background effect */}
       <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
       <motion.div
-        className="flex items-center gap-10 max-w-4xl mx-auto justify-between w-full flex-col md:p-0 p-6 md:flex-row"
+        className="flex items-center gap-10 max-w-5xl mx-auto justify-between w-full flex-col md:p-0 p-6 md:flex-row"
         variants={containerVariants}
       >
         <motion.div variants={textVariants}>
@@ -64,32 +64,6 @@ export function AboutImageIntro() {
               words={`Turning ideas into functional and visually appealing web apps`}
             />
           </motion.h1>
-          <motion.p
-            className="mt-6 font-medium text-neutral-300 relative z-20 text-start"
-            variants={textVariants}
-          >
-            With a keen interest in development technologies, I have gained
-            practical experience in designing and building web apps. I
-            specialize in developing web applications using modern technologies
-            such as React, Next.js, Tailwind CSS, and many more.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="relative z-20"
-          variants={imageVariants}
-          whileHover="hover"
-        >
-          <Image
-            src={`/images/siddharthaconvocation.jpg`}
-            alt="siddhartha singh convocation"
-            width={800}
-            height={800}
-            className="rounded-md h-full w-full"
-          />
-          <div className="text-white text-xs text-center mt-1">
-            Image from VIT Bhopal convocation 2024
-          </div>
         </motion.div>
       </motion.div>
     </motion.div>
