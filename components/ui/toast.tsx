@@ -16,7 +16,7 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+      "fixed bottom-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
       className
     )}
     {...props}
@@ -45,9 +45,21 @@ const Toast = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => {
+  const [open, setOpen] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(false);
+    }, 500); // auto-dismiss after 5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <ToastPrimitives.Root
       ref={ref}
+      open={open}
+      onOpenChange={setOpen}
       className={cn(toastVariants({ variant }), className)}
       {...props}
     />

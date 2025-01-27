@@ -23,11 +23,11 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { useToast } from "@/hooks/use-toast";
+import { ToastContainer, toast } from "react-toastify";
 
 export function HeroContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState<any>(null);
-  const { toast } = useToast();
 
   const avatarUrl = "/images/siddharthacircle.png";
   const socialButtons = [
@@ -38,10 +38,7 @@ export function HeroContent() {
       profileImage: "/images/siddharthacircle.png",
       onClick: () => {
         navigator.clipboard.writeText("https://siddharthasingh.me");
-        toast({
-          title: "Link Copied",
-          description: "Link copied to clipboard",
-        });
+        toast("Link copied to clipboard!");
       },
 
       button: false,
@@ -114,10 +111,7 @@ export function HeroContent() {
           setIsModalOpen(true);
           setModalContent("https://siddharthasingh.me");
           navigator.clipboard.writeText("https://siddharthasingh.me");
-          toast({
-            title: "Link Copied",
-            description: "Link copied to clipboard",
-          });
+           toast("Link copied to clipboard!");
         }}
       >
         <Share2Icon size={25} className="dark:text-black text-white" />

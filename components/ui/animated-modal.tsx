@@ -23,6 +23,19 @@ export function AnimatedModal({
   const modalRef = useRef<HTMLDivElement>(null);
   useOutsideClick(modalRef, () => onOpenChange(false));
 
+  const originalOverflow = useRef(document.body.style.overflow);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalOverflow.current;
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow.current;
+    };
+  }, [open]);
+
   return (
     <AnimatePresence>
       {open && (
