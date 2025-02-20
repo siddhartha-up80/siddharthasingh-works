@@ -1,5 +1,30 @@
 const list = [
   {
+    title: "LOOV",
+    type: "Full Stack",
+    tech: "Next.js 14, React, Tailwind, Shadcn UI, OpenAI API, LangChain",
+    slug: "loov",
+    img: "/images/loov.png",
+    description:
+      "A highly scalable multi-user Next.js 14 application to create and interact with AI companions, incorporating OpenAI and LangChain for dynamic, context-aware conversations.",
+    details:
+      "LOOV is a highly scalable multi-user Next.js 14 application designed to create and interact with AI companions. Leveraging the power of OpenAI and LangChain, LOOV offers dynamic and context-aware conversations that enhance user engagement and interaction. With a user-friendly interface and intuitive features, LOOV provides a seamless experience for users to connect with AI companions and explore new possibilities in conversational AI. By integrating cutting-edge technologies, LOOV opens up new horizons for communication and creativity, empowering users to engage with AI in innovative and meaningful ways.",
+    link: "https://loov.vercel.app/",
+  },
+
+  {
+    title: "VIRALTWEET",
+    type: "Full Stack",
+    tech: "Next.js 15, React, Tailwind, OpenAI API, Twitter OAuth",
+    slug: "viraltweet",
+    img: "/images/viraltweet.png",
+    description:
+      "A Next.js 15 SaaS product with automated tweet scheduling, and AI-powered content generation using OpenAI API and Twitter OAuth integration.",
+    details:
+      "VIRALTWEET is a cutting-edge Next.js 15 SaaS product that offers automated tweet scheduling and AI-powered content generation. By integrating the OpenAI API and Twitter OAuth, VIRALTWEET enables users to create and share engaging content effortlessly. With its user-friendly interface and advanced features, VIRALTWEET streamlines the process of managing social media content and enhances user productivity. Whether you're a content creator, marketer, or social media enthusiast, VIRALTWEET provides the tools you need to elevate your online presence and engage with your audience effectively.",
+    link: "https://viraltweet.co/",
+  },
+  {
     title: "Inators UI",
     type: "Full Stack",
     tech: "Next.js 14, React, Tailwind, Shadcn UI",
@@ -93,7 +118,7 @@ const list = [
     details: "",
     link: "https://siddharthasingh.vercel.app/",
   },
-  
+
   {
     title: "Plagiarisminator",
     type: "Front-End",

@@ -12,6 +12,23 @@ import { LinkPreview } from "../ui/link-preview";
 
 const projects = [
   {
+    title: "LOOV: AI-driven platform with customizable digital companions",
+    description:
+      "A highly scalable multi-user Next.js 14 application to create and interact with AI companions, incorporating OpenAI and  LangChain for dynamic, context-aware conversations. ",
+    link: "/images/loov.png",
+    color: "#1B0A02",
+    projectLink: "https://loov.vercel.app",
+  },
+  {
+    title: "VIRALTWEET: AI-Enhanced Twitter Content Management Platform",
+    description:
+      "A Next.js 15 SaaS product with automated tweet scheduling, and AI-powered content generation using OpenAI API and Twitter OAuth integration. ",
+    link: "/images/viraltweet.png",
+    color: "#1A91DA",
+    projectLink: "https://viraltweet.co",
+  },
+
+  {
     title: "Inators UI: Next.js Components Library for Developers",
     description:
       "Inators UI is a frontend components library for developers and designers to make creating nextjs client side as well as server side interfaces easier. Based on Tailwind and Shadcn/ui for just copy and use, with more than 150+ components to choose from.",
@@ -42,15 +59,6 @@ const projects = [
     link: "/images/optiflowinator.png",
     color: "#15A34A",
     projectLink: "https://optiflowinator.vercel.app",
-  },
-  {
-    title:
-      "Inators UI 2.0 (Upcoming): Framer-motion based Animated Next.js Components Library",
-    description:
-      "Inators UI 2.0 is an upcoming version of the Inators UI library, featuring modern animated components built with Framer Motion for enhanced interactivity and user experience.",
-    link: "/images/inatorsui.png",
-    color: "#0E1929",
-    projectLink: "https://inatorsui.vercel.app",
   },
 ];
 
