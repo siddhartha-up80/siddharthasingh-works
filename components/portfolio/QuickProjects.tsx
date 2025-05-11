@@ -24,7 +24,7 @@ const projects = [
     description:
       "A Next.js 15 SaaS product with automated tweet scheduling, and AI-powered content generation using OpenAI API and Twitter OAuth integration. ",
     link: "/images/viraltweet.png",
-    color: "#1A91DA",
+    color: "#1A80DA",
     projectLink: "https://viraltweet.co",
   },
 
@@ -72,7 +72,7 @@ export default function index(): JSX.Element {
     <ReactLenis root>
       <main className="" ref={container}>
         <section className="text-white w-full">
-          <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-3xl font-medium uppercase">
+          <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-4xl font-bold">
             Quick Projects
           </h1>
 
@@ -142,9 +142,7 @@ export const Card: React.FC<CardProps> = ({
         }}
         className={`flex flex-col relative -top-[25%] md:h-[70%] h-max w-[90%] rounded-md md:p-10 p-4 origin-top`}
       >
-        <h2 className="text-2xl text-center font-semibold uppercase">
-          {title}
-        </h2>
+        <h2 className="text-2xl text-center font-bold">{title}</h2>
         <div className={`flex h-full md:flex-row flex-col-reverse mt-5 gap-10`}>
           <div
             className={`md:w-[40%] relative md:top-[10%] text-justify md:text-left`}

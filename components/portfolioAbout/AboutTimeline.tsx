@@ -11,6 +11,26 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 export function AboutTimeline() {
   const data = [
     {
+      title: "2025 - Graduate Engineer Trainee, LTIMindtree",
+      content: (
+        <WobbleCard containerClassName="col-span-1 lg:col-span-2 md:max-h-full max-h-[50vh] md:h-full bg-pink-800 text-white w-full shadow-xl hover:bg-pink-600 transition duration-500 ease-in-out transform hover:scale-105">
+          <div className="flex justify-center items-center w-full">
+            {" "}
+            <Image
+              src={`/images/lti.jpg`}
+              width={500}
+              height={500}
+              alt="LTIMindtree"
+              className="rounded-md"
+            />
+          </div>
+          <p className="mt-4 text-center text-xs md:text-base">
+            Graduate Engineer Trainee at LTIMindtree, working on IBM Mainframe.
+          </p>
+        </WobbleCard>
+      ),
+    },
+    {
       title: "2024 - Next.js Developer, Tecnod8",
       content: (
         <WobbleCard containerClassName="col-span-1 lg:col-span-2 md:max-h-full max-h-[50vh] md:h-full bg-pink-800 text-white w-full shadow-xl hover:bg-pink-600 transition duration-500 ease-in-out transform hover:scale-105">

@@ -47,7 +47,7 @@ export default function RootLayout({
           <div className="">
             <Footer />
           </div>
-          <CanvasCursor />
+          {/* <CanvasCursor /> */}
         </ThemeProvider>
       </body>
     </html>

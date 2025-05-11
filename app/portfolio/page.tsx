@@ -6,6 +6,9 @@ import QuickProjects from "@/components/portfolio/QuickProjects";
 import React from "react";
 
 import type { Metadata } from "next";
+import AboutSkills from "@/components/portfolioAbout/AboutSkills";
+import { AboutTimeline } from "@/components/portfolioAbout/AboutTimeline";
+import AboutSetup from "@/components/portfolioAbout/AboutSetup";
 
 export const metadata: Metadata = {
   title:
@@ -20,6 +23,7 @@ const Page = () => {
       <HeroPortfolio />
       <About />
       <QuickProjects />
+      <AboutSkills />
       <QuickLinks
         forwardLink={`/portfolio/about`}
         forwardLinkText="View More About Me"

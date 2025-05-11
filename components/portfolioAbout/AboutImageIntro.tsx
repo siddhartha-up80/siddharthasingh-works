@@ -48,19 +48,19 @@ export function AboutImageIntro() {
       <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
       <motion.div
-        className="flex items-center gap-10 max-w-5xl mx-auto justify-between w-full flex-col md:p-0 p-6 md:flex-row"
+        className="flex items-center gap-10 max-w-6xl mx-auto justify-center w-full flex-col md:p-0 p-6 md:flex-row"
         variants={containerVariants}
       >
         <motion.div variants={textVariants}>
           <motion.h1
             className={cn(
-              "md:text-4xl font-semibold text-xl text-white relative z-20"
+              "md:text-4xl text-center font-semibold text-xl text-white relative z-20"
             )}
           >
             <TextGenerateEffect
               duration={2}
               filter={false}
-              className="md:text-4xl font-semibold text-xl text-white relative z-20"
+              className="md:text-4xl text-center font-bold text-xl text-white relative z-20"
               words={`Turning ideas into functional and visually appealing web apps`}
             />
           </motion.h1>

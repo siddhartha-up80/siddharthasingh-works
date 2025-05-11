@@ -58,7 +58,7 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            className="min-w-[45vw] flex flex-col gap-10 p-10 flex-wrap text-2xl leading-relaxed"
+            className="min-w-[45vw] flex flex-col font-thin gap-10 p-10 flex-wrap text-2xl leading-relaxed"
             variants={textVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
