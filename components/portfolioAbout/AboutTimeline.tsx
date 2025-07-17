@@ -6,7 +6,6 @@ import { Timeline } from "@/components/ui/timeline";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { WobbleCard } from "../ui/wobble-card";
-import { ReactLenis } from "@studio-freight/react-lenis";
 
 export function AboutTimeline() {
   const data = [
@@ -121,15 +120,13 @@ export function AboutTimeline() {
   ];
 
   return (
-    <ReactLenis root>
-      <motion.div
-        className="relative z-0 py-8"
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-      >
-        <Timeline data={data} />
-      </motion.div>
-    </ReactLenis>
+    <motion.div
+      className="relative z-0 py-8"
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+    >
+      <Timeline data={data} />
+    </motion.div>
   );
 }

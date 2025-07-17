@@ -62,8 +62,13 @@
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto !important;
   }
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: auto !important;
   }
 }
