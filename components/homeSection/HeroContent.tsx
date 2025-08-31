@@ -37,7 +37,7 @@ export function HeroContent() {
       profileName: "Share",
       profileImage: "/images/siddharthacircle.png",
       onClick: () => {
-        navigator.clipboard.writeText("https://siddharthasingh.me");
+        navigator.clipboard.writeText("https://siddharthasingh.co.in");
         toast("Link copied to clipboard!");
       },
 
@@ -95,9 +95,9 @@ export function HeroContent() {
       label: "Portfolio",
       image: "/images/terminal.png",
       profileImage: "/images/siddharthacircle.png",
-      profileName: "https://siddharthasingh.me/portfolio",
+      profileName: "https://siddharthasingh.co.in/portfolio",
       onClick: () =>
-        window.open("https://siddharthasingh.me/portfolio", "_blank"),
+        window.open("https://siddharthasingh.co.in/portfolio", "_blank"),
       button: true,
     },
   ];
@@ -109,9 +109,9 @@ export function HeroContent() {
         title="share"
         onClick={() => {
           setIsModalOpen(true);
-          setModalContent("https://siddharthasingh.me");
-          navigator.clipboard.writeText("https://siddharthasingh.me");
-           toast("Link copied to clipboard!");
+          setModalContent("https://siddharthasingh.co.in");
+          navigator.clipboard.writeText("https://siddharthasingh.co.in");
+          toast("Link copied to clipboard!");
         }}
       >
         <Share2Icon size={25} className="dark:text-black text-white" />

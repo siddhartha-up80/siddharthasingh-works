@@ -4,7 +4,7 @@ import list from "./portfolio/projects/list";
 export default function sitemap(): MetadataRoute.Sitemap {
 
   const projectlinks : any = list.map((project) => ({
-    url: `https://siddharthasingh.me/portfolio/projects/${project.slug}`,
+    url: `https://siddharthasingh.co.in/portfolio/projects/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
@@ -12,19 +12,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: "https://siddharthasingh.me",
+      url: "https://siddharthasingh.co.in",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: "https://siddharthasingh.me/portfolio",
+      url: "https://siddharthasingh.co.in/portfolio",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://siddharthasingh.me/portfolio/projects",
+      url: "https://siddharthasingh.co.in/portfolio/projects",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
@@ -33,13 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...projectlinks,
     
     {
-      url: "https://siddharthasingh.me/portfolio/about",
+      url: "https://siddharthasingh.co.in/portfolio/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://siddharthasingh.me/portfolio/contact",
+      url: "https://siddharthasingh.co.in/portfolio/contact",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,

@@ -40,7 +40,7 @@ export const generateMetadata = ({ params }: any): Metadata => {
         {
           url:
             info?.img ||
-            "https://www.siddharthasingh.me/_next/image?url=%2Fimages%2Fsiddharthacircle.png&w=1080&q=75",
+            "https://www.siddharthasingh.co.in/_next/image?url=%2Fimages%2Fsiddharthacircle.png&w=1080&q=75",
           width: 800,
           height: 500,
           alt: info?.title || "Project Image",
@@ -71,7 +71,7 @@ const Page = ({ params, searchParams }: any) => {
                 className="md:min-w-[40vw] md:max-w-[50vw] object-fill object-top rounded aspect-video"
                 src={
                   info?.img ||
-                  "https://source.unsplash.com/random/800x500/?project"
+                  "https://images.unsplash.com/photo-1552308995-2baac1ad5490?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
               />
             </Link>
