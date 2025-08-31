@@ -11,6 +11,7 @@ import { AboutTimeline } from "@/components/portfolioAbout/AboutTimeline";
 import AboutSetup from "@/components/portfolioAbout/AboutSetup";
 import AllProjects from "@/components/portfolioProjects/AllProjects";
 import ProjectsHero from "@/components/portfolioProjects/ProjectsHero";
+import Contact from "@/components/portfolioContact/Contact";
 
 export const metadata: Metadata = {
   title:
@@ -26,10 +27,11 @@ const Page = () => {
       <About />
       <QuickProjects />
       <AboutSkills />
-       <AboutTimeline />
-            <AboutSetup />
-            {/* <ProjectsHero /> */}
-            <AllProjects />
+      <AboutTimeline />
+      <AboutSetup />
+      {/* <ProjectsHero /> */}
+      <AllProjects />
+      <Contact />
       <QuickLinks
         forwardLink={`/portfolio/about`}
         forwardLinkText="View More About Me"
