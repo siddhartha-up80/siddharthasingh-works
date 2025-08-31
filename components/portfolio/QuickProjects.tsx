@@ -1,7 +1,5 @@
 "use client";
 
-import { ReactLenis } from "@studio-freight/react-lenis";
-
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -69,33 +67,31 @@ export default function index(): JSX.Element {
     offset: ["start start", "end end"],
   });
   return (
-    <ReactLenis root>
-      <main className="" ref={container}>
-        <section className="text-white w-full">
-          <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-4xl font-bold">
-            Quick Projects
-          </h1>
+    <main className="" ref={container}>
+      <section className="text-white w-full">
+        <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-4xl font-bold">
+          Quick Projects
+        </h1>
 
-          {projects.map((project, i) => {
-            const targetScale = 1 - (projects.length - i) * 0.05;
-            return (
-              <Card
-                key={`p_${i}`}
-                i={i}
-                url={project?.projectLink}
-                src={project?.link}
-                title={project?.title}
-                color={project?.color}
-                description={project?.description}
-                progress={scrollYProgress}
-                range={[i * 0.25, 1]}
-                targetScale={targetScale}
-              />
-            );
-          })}
-        </section>
-      </main>
-    </ReactLenis>
+        {projects.map((project, i) => {
+          const targetScale = 1 - (projects.length - i) * 0.05;
+          return (
+            <Card
+              key={`p_${i}`}
+              i={i}
+              url={project?.projectLink}
+              src={project?.link}
+              title={project?.title}
+              color={project?.color}
+              description={project?.description}
+              progress={scrollYProgress}
+              range={[i * 0.25, 1]}
+              targetScale={targetScale}
+            />
+          );
+        })}
+      </section>
+    </main>
   );
 }
 interface CardProps {
