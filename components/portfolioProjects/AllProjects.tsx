@@ -28,7 +28,7 @@ const cardVariants = {
     },
   },
 };
-
+ 
 const AllProjects = () => {
   return (
     <>

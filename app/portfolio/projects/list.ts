@@ -1,5 +1,17 @@
 const list = [
   {
+    title: "Designator",
+    type: "Full Stack",
+    tech: "Next.js 15, React, Tailwind, Shadcn UI, AI Image Generation API, Clerk Auth, Stripe, MongoDB",
+    slug: "designator",
+    img: "/images/designator.png",
+    description:
+      "AI-powered SaaS platform that transforms product images into professional model photos, ads, and marketing content in minutes. Features virtual fashion modeling, product isolation, and professional AI photography.",
+    details:
+      "Designator is a cutting-edge AI-powered SaaS platform that revolutionizes product photography and marketing content creation. Transform a single product shot into an entire content library—complete with model photography, lifestyle visuals, and marketing assets in just minutes. The platform offers multiple services including Virtual Fashion Modeling to bring designs to life on AI models, Product Isolation & Enhancement for e-commerce ready visuals, and Professional AI Photography without the studio. With features like smart background removal, realistic fabric flow visualization, precision shadow and reflection customization, and high-resolution outputs with professional formatting options, Designator helps brands create stunning visual content without expensive photoshoots. The platform generates multiple formats and dimensions automatically, offers curated themes for retail, lifestyle, and social media, and maintains consistent brand identity across all visuals. Perfect for fashion brands, e-commerce businesses, content creators, and marketers looking to maximize impact with efficient, professional-grade visual content creation.",
+    link: "https://designator.siddharthasingh.co.in/",
+  },
+  {
     title: "LOOV",
     type: "Full Stack",
     tech: "Next.js 14, React, Tailwind, Shadcn UI, OpenAI API, LangChain",

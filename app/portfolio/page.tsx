@@ -1,4 +1,3 @@
-import Footer from "@/components/main/footer";
 import About from "@/components/portfolio/HeroAbout";
 import HeroPortfolio from "@/components/portfolio/HeroPortfolio";
 import QuickLinks from "@/components/portfolio/QuickLinks";
@@ -10,7 +9,6 @@ import AboutSkills from "@/components/portfolioAbout/AboutSkills";
 import { AboutTimeline } from "@/components/portfolioAbout/AboutTimeline";
 import AboutSetup from "@/components/portfolioAbout/AboutSetup";
 import AllProjects from "@/components/portfolioProjects/AllProjects";
-import ProjectsHero from "@/components/portfolioProjects/ProjectsHero";
 import Contact from "@/components/portfolioContact/Contact";
 
 export const metadata: Metadata = {
@@ -29,7 +27,6 @@ const Page = () => {
       <AboutSkills />
       <AboutTimeline />
       <AboutSetup />
-      {/* <ProjectsHero /> */}
       <AllProjects />
       <Contact />
       <QuickLinks

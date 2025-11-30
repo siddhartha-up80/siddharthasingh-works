@@ -10,6 +10,15 @@ import { LinkPreview } from "../ui/link-preview";
 
 const projects = [
   {
+    title:
+      "Designator: AI-Powered Product Photography & Marketing Content Platform",
+    description:
+      "Transform product images into professional model photos, ads, and marketing content in minutes with AI. Features virtual fashion modeling, product isolation & enhancement, and studio-quality photography without expensive photoshoots. Perfect for e-commerce, fashion brands, and content creators.",
+    link: "/images/designator.png",
+    color: "#6366F1",
+    projectLink: "https://designator.siddharthasingh.co.in",
+  },
+  {
     title: "LOOV: AI-driven platform with customizable digital companions",
     description:
       "A highly scalable multi-user Next.js 14 application to create and interact with AI companions, incorporating OpenAI and  LangChain for dynamic, context-aware conversations. ",

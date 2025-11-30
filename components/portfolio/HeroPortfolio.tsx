@@ -17,12 +17,12 @@ const HeroPortfolio = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="text-3xl font-bold !leading-snug sm:text-5xl">
-            Siddhartha Singh,
+          <div className="text-3xl font-semibold !leading-snug sm:text-5xl">
+            Siddhartha Singh
             <br />
-            <span>
+            <span className="">
               <TextGenerateEffect
-                words={`Next.js Enthusiast and Crafting Engaging Interfaces`}
+                words={`Next.js Enthusiast, Crafting Engaging Interfaces`}
                 filter={false}
                 duration={3}
                 className=""
