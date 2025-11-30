@@ -2,11 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import list from "@/app/portfolio/projects/list";
 import { Button } from "../ui/button";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import { LinkPreview } from "../ui/link-preview";
-import { motion } from "framer-motion"; // Removed useInView and controls
+import { motion } from "framer-motion";
+
+interface Project {
+  _id: string;
+  title: string;
+  description: string;
+  img: string;
+  link: string;
+  slug: string;
+}
+
+interface AllProjectsProps {
+  projects: Project[];
+}
 
 // Animation variants for the card entrance
 const cardVariants = {
@@ -29,21 +41,21 @@ const cardVariants = {
   },
 };
 
-const AllProjects = () => {
+const AllProjects = ({ projects }: AllProjectsProps) => {
   return (
     <>
       {/* Projects */}
       <div className="mx-auto my-10 w-full">
         <div className="flex h-full gap-3 flex-wrap justify-center items-center md:p-0 p-2">
-          {list.map((item, index) => (
+          {projects.map((item, index) => (
             <motion.div
-              key={index}
+              key={item._id}
               initial="hidden"
               animate="visible"
-              variants={cardVariants} // Apply animation variants directly
+              variants={cardVariants}
               className="w-full sm:w-[30rem]"
             >
-              <CardContainer className="inter-var h-full" key={index}>
+              <CardContainer className="inter-var h-full" key={item._id}>
                 <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-full rounded-xl p-6 border  ">
                   <Link href={`/portfolio/projects/${item.slug}`}>
                     <CardItem translateZ="100" className="w-full">

@@ -7,69 +7,20 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LinkPreview } from "../ui/link-preview";
+import { getQuickProjects } from "@/services/projects";
 
-const projects = [
-  {
-    title:
-      "Designator: AI-Powered Product Photography & Marketing Content Platform",
-    description:
-      "Transform product images into professional model photos, ads, and marketing content in minutes with AI. Features virtual fashion modeling, product isolation & enhancement, and studio-quality photography without expensive photoshoots. Perfect for e-commerce, fashion brands, and content creators.",
-    link: "/images/designator.png",
-    color: "#EC4889",
-    projectLink: "https://designator.siddharthasingh.co.in",
-  },
-  {
-    title: "LOOV: AI-driven platform with customizable digital companions",
-    description:
-      "A highly scalable multi-user Next.js 14 application to create and interact with AI companions, incorporating OpenAI and  LangChain for dynamic, context-aware conversations. ",
-    link: "/images/loov.png",
-    color: "#1B0A02",
-    projectLink: "https://loov.vercel.app",
-  },
-  {
-    title: "VIRALTWEET: AI-Enhanced Twitter Content Management Platform",
-    description:
-      "A Next.js 15 SaaS product with automated tweet scheduling, and AI-powered content generation using OpenAI API and Twitter OAuth integration. ",
-    link: "/images/viraltweet.png",
-    color: "#1A80DA",
-    projectLink: "https://viraltweet.co",
-  },
+interface QuickProjectsProps {
+  projects: Array<{
+    _id: string;
+    title: string;
+    description: string;
+    img: string;
+    color?: string;
+    link: string;
+  }>;
+}
 
-  {
-    title: "Inators UI: Next.js Components Library for Developers",
-    description:
-      "Inators UI is a frontend components library for developers and designers to make creating nextjs client side as well as server side interfaces easier. Based on Tailwind and Shadcn/ui for just copy and use, with more than 150+ components to choose from.",
-    link: "/images/inatorsui.png",
-    color: "#0E1929",
-    projectLink: "https://inatorsui.vercel.app",
-  },
-  {
-    title: "Next Inator: Custom Data AI Chat Web-App",
-    description:
-      "Next Inator is a web app built in Next.js 14, it is an open-ai based custom data based AI chat web-app, powered by open-ai api and pinecone vector database. Users can add their own data, and chat with the data, to get personalized responses. It is a great tool for content creators, marketers, students, and anyone who wants to get personalized responses from ai chatbots.",
-    link: "/images/nextinator.png",
-    color: "#E11D48",
-    projectLink: "https://nextinator.vercel.app",
-  },
-  {
-    title: "Ethnic Inator: Indian Ethnic Wear E-Commerce Web-App",
-    description:
-      "A feature-rich indian ethnic wear e-commerce website using Next.js 14, featuring functionalities like Add to Cart, Filtering, and Content Management System and payment system using stripe. With next.js server-side components from Next.js 14 app router, ensuring an optimal user experience and strong SEO performance.",
-    link: "/images/ethnicinator.png",
-    color: "#FA9614",
-    projectLink: "https://ethnicinator.vercel.app",
-  },
-  {
-    title: "Optiflow Inator: Code Optimization Community Web-App",
-    description:
-      "Optiflowinator is a Multiuser Next.js 14 app-directory based application, incorporating the Open-AI API to create, optimize and share code posts within a community feed. With a secure Google authentication using Next Auth, providing multiple login options.",
-    link: "/images/optiflowinator.png",
-    color: "#15A34A",
-    projectLink: "https://optiflowinator.vercel.app",
-  },
-];
-
-export default function index(): JSX.Element {
+export default function index({ projects }: QuickProjectsProps): JSX.Element {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -88,10 +39,10 @@ export default function index(): JSX.Element {
             <Card
               key={`p_${i}`}
               i={i}
-              url={project?.projectLink}
-              src={project?.link}
+              url={project?.link}
+              src={project?.img}
               title={project?.title}
-              color={project?.color}
+              color={project?.color || "#000000"}
               description={project?.description}
               progress={scrollYProgress}
               range={[i * 0.14, 1]}

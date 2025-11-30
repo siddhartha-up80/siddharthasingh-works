@@ -10,6 +10,7 @@ import { AboutTimeline } from "@/components/portfolioAbout/AboutTimeline";
 import AboutSetup from "@/components/portfolioAbout/AboutSetup";
 import AllProjects from "@/components/portfolioProjects/AllProjects";
 import Contact from "@/components/portfolioContact/Contact";
+import { getAllProjects, getQuickProjects } from "@/services/projects";
 
 export const metadata: Metadata = {
   title:
@@ -18,15 +19,18 @@ export const metadata: Metadata = {
     "Siddhartha Singh Graduated from vit (vellore institute of technology) in 2024, I am a Next.js web developer with a strong inclination towards challenging projects, designing and developing web applications. My primary tech stack includes Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.",
 };
 
-const Page = () => {
+const Page = async () => {
+  const quickProjects = await getQuickProjects();
+  const allProjects = await getAllProjects();
+
   return (
     <div className="space-y-5">
       <HeroPortfolio />
       <About />
-      <QuickProjects />
+      <QuickProjects projects={quickProjects} />
       <AboutSkills />
       <AboutTimeline />
-      <AllProjects />
+      <AllProjects projects={allProjects} />
       <Contact />
       <QuickLinks
         forwardLink={`/portfolio/about`}
