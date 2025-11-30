@@ -13,14 +13,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export const generateMetadata = async ({
-  params,
-}: any): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   const info = await getProjectBySlug(params.projects);
   return {
     title:
-      "Siddhartha Singh Projects | " +
-        info?.title || "Project Details" + " | Portfolio Next.js Developer",
+      "Siddhartha Singh Projects | " + info?.title ||
+      "Project Details" + " | Portfolio Next.js Developer",
     description:
       info?.description ||
       "Project details" +

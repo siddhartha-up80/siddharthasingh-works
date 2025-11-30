@@ -31,7 +31,7 @@ async function dbConnect() {
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
       // Increase max listeners to prevent warnings during build
       mongoose.connection.setMaxListeners(20);
-      
+
       mongoose.connection.on("connected", () => {
         console.log("MongoDB connected successfully");
       });
