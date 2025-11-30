@@ -60,7 +60,7 @@ export default function AboutSkills() {
               size={20}
               className="text-red-500 md:hidden block"
             />
-            <span className="md:text-2xl font-semibold text-black md:ml-1">
+            <span className="md:text-xl text-sm font-light text-black dark:text-white md:ml-1">
               Tech Stack
             </span>
           </Circle>

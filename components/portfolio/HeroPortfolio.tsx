@@ -10,27 +10,30 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 const HeroPortfolio = () => {
   return (
     <div>
-      <section className="container flex flex-col-reverse h-screen justify-center mx-auto lg:flex-row lg:justify-between">
+      <section className="container flex flex-col-reverse md:h-screen h-[85vh] justify-center mx-auto lg:flex-row lg:justify-between ">
         <motion.div
           className="flex flex-col justify-center text-center rounded-sm lg:text-left lg:mt-14 mt-0"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="text-3xl font-semibold !leading-snug sm:text-5xl">
+          <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-4">
+            Full Stack Developer
+          </span>
+          <div className="text-4xl font-light !leading-tight sm:text-6xl tracking-tight">
             Siddhartha Singh
             <br />
-            <span className="">
+            <span className="text-2xl sm:text-3xl font-extralight text-gray-600 dark:text-gray-300">
               <TextGenerateEffect
                 words={`Next.js Enthusiast, Crafting Engaging Interfaces`}
                 filter={false}
                 duration={3}
-                className=""
+                className="font-extralight"
               />
             </span>
           </div>
           <motion.p
-            className="mt-6 mb-8 text-lg sm:mb-12"
+            className="mt-8 mb-10 text-sm sm:text-base font-light text-gray-600 dark:text-gray-400 leading-relaxed sm:mb-14"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1 }}
@@ -40,17 +43,13 @@ const HeroPortfolio = () => {
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <Link href="/portfolio/contact">
               <motion.button
-                className="group relative inline-flex h-[calc(48px+8px)] min-w-[200px] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50"
+                className="group relative inline-flex h-12 px-8 items-center justify-center gap-2 rounded-full bg-black dark:bg-white text-white dark:text-black font-light text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.6, type: "spring", stiffness: 120 }}
               >
-                <span className="z-10 pr-2">Contact Me</span>
-                <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#e75050] bg-[#a02b2b] transition-[width] group-hover:w-[calc(100%-8px)]">
-                  <div className="mr-3.5 flex items-center justify-center">
-                    <ArrowRight />
-                  </div>
-                </div>
+                <span>Contact Me</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </motion.button>
             </Link>
           </div>

@@ -158,10 +158,10 @@ function SetupTable() {
   return (
     <Card className={cn("w-full max-w-3xl")} id="setup">
       <CardHeader className="relative overflow-hidden">
-        <CardTitle className="mb-3 text-3xl font-bold tracking-tight text-center">
+        <CardTitle className="mb-3 text-2xl md:text-3xl font-light tracking-tight text-center">
           My Potato Setup
         </CardTitle>
-        <CardDescription className="text-center">
+        <CardDescription className="text-center text-sm font-light">
           The stuff that I use for my work
         </CardDescription>
       </CardHeader>
@@ -188,10 +188,10 @@ function SetupTableRow({ setup, index }: { setup: Setup; index: number }) {
       whileHover={{ scale: 1.05, rotate: 0 }}
       transition={{ type: "spring", stiffness: 200 }}
     >
-      <p className="font-bold text-sm md:col-span-1 xl:text-base">
+      <p className="font-light text-sm md:col-span-1 xl:text-base">
         {setup.type}
       </p>
-      <div className="flex flex-col text-sm  md:col-span-2 xl:text-base">
+      <div className="flex flex-col text-sm md:col-span-2 xl:text-base font-light">
         {setup.items.map((item, i) => (
           <React.Fragment key={i}>
             {item.link ? (

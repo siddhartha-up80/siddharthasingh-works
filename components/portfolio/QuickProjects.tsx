@@ -15,7 +15,7 @@ const projects = [
     description:
       "Transform product images into professional model photos, ads, and marketing content in minutes with AI. Features virtual fashion modeling, product isolation & enhancement, and studio-quality photography without expensive photoshoots. Perfect for e-commerce, fashion brands, and content creators.",
     link: "/images/designator.png",
-    color: "#6366F1",
+    color: "#EC4889",
     projectLink: "https://designator.siddharthasingh.co.in",
   },
   {
@@ -78,7 +78,7 @@ export default function index(): JSX.Element {
   return (
     <main className="" ref={container}>
       <section className="text-white w-full">
-        <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-4xl font-bold">
+        <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-5xl font-light tracking-tight">
           Quick Projects
         </h1>
 
@@ -94,7 +94,7 @@ export default function index(): JSX.Element {
               color={project?.color}
               description={project?.description}
               progress={scrollYProgress}
-              range={[i * 0.25, 1]}
+              range={[i * 0.14, 1]}
               targetScale={targetScale}
             />
           );
@@ -126,12 +126,6 @@ export const Card: React.FC<CardProps> = ({
   targetScale,
 }) => {
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "start start"],
-  });
-
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -141,51 +135,64 @@ export const Card: React.FC<CardProps> = ({
     >
       <motion.div
         style={{
-          backgroundColor: color,
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className={`flex flex-col relative -top-[25%] md:h-[70%] h-max w-[90%] rounded-md md:p-10 p-4 origin-top`}
+        className={`flex flex-col relative -top-[25%] md:h-[70%] h-max w-[90%] rounded-3xl md:p-12 p-6 origin-center backdrop-blur-sm border border-white/10 shadow-2xl overflow-hidden`}
       >
-        <h2 className="text-2xl text-center font-bold">{title}</h2>
-        <div className={`flex h-full md:flex-row flex-col-reverse mt-5 gap-10`}>
-          <div
-            className={`md:w-[40%] relative md:top-[10%] text-justify md:text-left`}
-          >
-            <p className="text-base md:text-lg">{description}</p>
-            <span className="flex items-center gap-2 pt-2">
-              <LinkPreview
-                url={url}
-                className="no-underline hover:underline hover:underline-offset-4 cursor-pointer mt-4"
-              >
+        {/* Background gradient overlay */}
+        <div
+          className="absolute inset-0 opacity-90 -z-10"
+          style={{
+            background: `linear-gradient(135deg, ${color} 0%, ${color}dd 100%)`,
+          }}
+        />
+
+        {/* Eyebrow text */}
+        <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-white/70 mb-3">
+          Project {String(i + 1).padStart(2, "0")}
+        </span>
+
+        <h2 className="text-xl md:text-3xl font-light tracking-tight leading-tight mb-1 text-white">
+          {title.split(":")[0]}
+        </h2>
+        <p className="text-xs md:text-sm font-light text-white/80 mb-6">
+          {title.includes(":") ? title.split(":")[1].trim() : ""}
+        </p>
+
+        <div
+          className={`flex h-full md:flex-row flex-col-reverse gap-6 md:gap-8`}
+        >
+          <div className={`md:w-[40%] flex flex-col`}>
+            <p className="text-xs md:text-sm font-light leading-relaxed text-white/90">
+              {description}
+            </p>
+
+            <span className="flex items-center gap-2 mt-6">
+              <LinkPreview url={url} className="no-underline group">
                 <button
                   className={cn(
-                    "relative flex gap-1 items-center overflow-hidden rounded-sm  px-4 py-2 text-sm  transition-colors duration-700 ease-out before:absolute before:-left-10 before:top-0 before:z-[-1] before:h-full before:w-[0%] before:skew-x-[45deg]  before:transition-all before:delay-75 before:duration-700 before:content-[''] hover:before:w-[150%] focus:outline-none  focus:ring-offset-1 focus:ring-offset-white focus:before:w-[150%] focus-visible:ring-2  dark:before:bg-black dark:focus:ring-blackdark:focus:ring-offset-black hover:text-white text-black bg-white hover:bg-transparent",
-                    "before:bg-black focus:ring-black"
+                    "relative flex gap-2 items-center rounded-full px-5 py-2.5 text-xs md:text-sm font-light bg-white/95 text-black backdrop-blur-sm transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
                   )}
                   type="button"
                 >
-                  Visit {title.split(":")[0]}
-                  <ArrowRight className="mt-1 ml-1" />
+                  Visit Project
+                  <ArrowRight className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </LinkPreview>
             </span>
           </div>
 
           <div
-            className={`relative md:w-[80%] w-[100%] md:aspect-auto aspect-video md:h-full h-max rounded-lg overflow-hidden `}
+            className={`relative md:w-[60%] w-[100%] rounded-xl overflow-hidden shadow-xl ring-1 ring-white/20 flex items-center justify-center bg-white/5 p-2 md:p-6 lg:bottom-20`}
           >
-            <motion.div
-              className={`w-full h-full`}
-              style={{ scale: imageScale }}
-            >
-              <Image
-                fill
-                src={src}
-                alt="image"
-                className="object-cover md:aspect-auto aspect-video"
-              />
-            </motion.div>
+            <Image
+              src={src}
+              alt="image"
+              width={1200}
+              height={800}
+              className="object-contain w-full h-full rounded-xl"
+            />
           </div>
         </div>
       </motion.div>

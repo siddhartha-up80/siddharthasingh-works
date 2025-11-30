@@ -28,7 +28,7 @@ const cardVariants = {
     },
   },
 };
- 
+
 const AllProjects = () => {
   return (
     <>
@@ -58,24 +58,26 @@ const AllProjects = () => {
                   </Link>
                   <CardItem
                     translateZ="50"
-                    className="text-xl mt-4 font-bold text-neutral-600 dark:text-white"
+                    className="text-lg md:text-xl mt-4 font-light tracking-tight text-neutral-800 dark:text-white"
                   >
                     {item.title}
                   </CardItem>
                   <CardItem
                     as="p"
                     translateZ="60"
-                    className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                    className="text-neutral-600 text-xs md:text-sm max-w-sm mt-2 dark:text-neutral-400 font-light leading-relaxed"
                   >
                     {item.description}
                   </CardItem>
                   <div className="flex justify-between items-center mt-20 w-full">
                     <CardItem
                       translateZ={20}
-                      className="px-4 py-2 w-full rounded-xl text-xs font-normal dark:text-white"
+                      className="px-4 py-2 w-full rounded-xl text-xs font-light dark:text-white"
                     >
                       <LinkPreview url={item.link} className="w-full">
-                        <Button className="w-full">View</Button>
+                        <Button className="w-full rounded-full font-light text-sm hover:scale-105 transition-transform">
+                          View Project
+                        </Button>
                       </LinkPreview>
                     </CardItem>
                   </div>

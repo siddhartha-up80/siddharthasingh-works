@@ -28,48 +28,48 @@ const QuickLinks = ({
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 10 }}
-        className="h-max relative w-full overflow-hidden   p-4 md:px-6 bg-slate-900 dark:bg-slate-100 dark:text-black flex flex-row items-center justify-between rounded-lg text-white"
+        className="h-max relative w-full overflow-hidden p-6 md:px-8 bg-slate-900 dark:bg-slate-100 dark:text-black flex flex-row items-center justify-between rounded-3xl text-white shadow-xl"
       >
         <motion.div
-          whileHover={{ scale: 1.2 }}
+          whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <button
-            className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r dark:from-[#410707] dark:to-[#812626] from-[#ffc0c0] to-[#ff4c4c] font-medium text-neutral-200 border-2 border-[#e26565] transition-all duration-300 hover:w-60"
+            className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white/10 dark:bg-black/10 backdrop-blur-sm font-light text-white dark:text-black transition-all duration-300 hover:w-40 border border-white/20 dark:border-black/20"
             onClick={() => {
               router.back();
             }}
           >
             <motion.div
-              className="absolute left-3"
+              className="absolute left-3.5"
               initial={{ x: -10 }}
               animate={{ x: 0 }}
               transition={{ type: "spring", stiffness: 100 }}
             >
-              <ArrowLeft />
+              <ArrowLeft className="w-5 h-5" />
             </motion.div>
-            <div className="md:inline-flex hidden whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100">
+            <div className="hidden md:inline-flex whitespace-nowrap text-sm opacity-0 transition-all duration-200 group-hover:opacity-100">
               Go Back
             </div>
           </button>
         </motion.div>
 
         <motion.div
-          whileHover={{ scale: 1.2 }}
+          whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <Link href={forwardLink}>
-            <button className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r dark:from-[#410707] dark:to-[#812626] from-[#ffc0c0] to-[#ff4c4c] font-medium text-neutral-200 border-2 border-[#e26565] transition-all duration-300 hover:w-60">
-              <div className="md:inline-flex hidden whitespace-nowrap opacity-0 transition-all duration-200  group-hover:opacity-100">
+            <button className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white/10 dark:bg-black/10 backdrop-blur-sm font-light text-white dark:text-black transition-all duration-300 hover:w-60 border border-white/20 dark:border-black/20">
+              <div className="hidden md:inline-flex whitespace-nowrap text-sm opacity-0 transition-all duration-200 group-hover:opacity-100">
                 {forwardLinkText}
               </div>
               <motion.div
-                className="absolute right-3"
+                className="absolute right-3.5"
                 initial={{ x: 10 }}
                 animate={{ x: 0 }}
                 transition={{ type: "spring", stiffness: 100 }}
               >
-                <ArrowRight />
+                <ArrowRight className="w-5 h-5" />
               </motion.div>
             </button>
           </Link>
@@ -81,26 +81,26 @@ const QuickLinks = ({
           {[
             {
               href: "https://github.com/siddhartha-up80",
-              icon: <GithubIcon size={30} />,
+              icon: <GithubIcon size={28} />,
             },
             {
               href: "https://twitter.com/siddhartha_up80",
-              icon: <TwitterIcon size={30} />,
+              icon: <TwitterIcon size={28} />,
             },
             {
               href: "https://www.linkedin.com/in/siddhartha-singh-work",
-              icon: <LinkedinIcon size={30} />,
+              icon: <LinkedinIcon size={28} />,
             },
             {
               href: "https://www.instagram.com/sid_up80",
-              icon: <InstagramIcon size={30} />,
+              icon: <InstagramIcon size={28} />,
             },
           ].map((link, index) => (
             <motion.li
               key={index}
               whileHover={{
-                scale: 1.3,
-                rotate: [0, 10, -10, 0],
+                scale: 1.2,
+                rotate: [0, 5, -5, 0],
               }}
               whileTap={{ scale: 0.9 }}
               transition={{
@@ -114,7 +114,7 @@ const QuickLinks = ({
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="icon-colour text-3xl"
+                className="icon-colour opacity-70 hover:opacity-100 transition-opacity"
               >
                 {link.icon}
               </Link>

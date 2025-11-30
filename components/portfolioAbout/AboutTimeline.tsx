@@ -23,7 +23,7 @@ export function AboutTimeline() {
               className="rounded-md"
             />
           </div>
-          <p className="mt-4 text-center text-xs md:text-base">
+          <p className="mt-4 text-center text-xs md:text-sm font-light leading-relaxed">
             Graduate Engineer Trainee at LTIMindtree, working on IBM Mainframe.
           </p>
         </WobbleCard>
@@ -43,7 +43,7 @@ export function AboutTimeline() {
               className="rounded-md"
             />
           </div>
-          <p className="mt-4 text-center text-xs md:text-base">
+          <p className="mt-4 text-center text-xs md:text-sm font-light leading-relaxed">
             Implementation of Next.js in an existing ReactJS project, adding
             features, optimizing performance and scalability. Integrated OpenAI
             APIs, enhancing generative AI functionality for dynamic responses.
@@ -68,7 +68,7 @@ export function AboutTimeline() {
             />
           </div>
 
-          <p className="mt-4 text-center text-xs md:text-base">
+          <p className="mt-4 text-center text-xs md:text-sm font-light leading-relaxed">
             B.Tech in Electronics and Communication Engineering from Vellore
             Institute of Technology, Bhopal, Madhya Pradesh
           </p>
@@ -89,7 +89,7 @@ export function AboutTimeline() {
               className="rounded-md"
             />
           </div>
-          <p className="mt-4 text-center text-white text-xs md:text-base">
+          <p className="mt-4 text-center text-white text-xs md:text-sm font-light leading-relaxed">
             Completed Class 12 under the Central Board of Secondary Education
             (CBSE) from Vijaya International School, Agra, Uttar Pradesh
           </p>
@@ -110,7 +110,7 @@ export function AboutTimeline() {
               className="rounded-md"
             />
           </div>
-          <p className="mt-4 text-center text-xs md:text-base">
+          <p className="mt-4 text-center text-xs md:text-sm font-light leading-relaxed">
             Completed Class 10 under the Central Board of Secondary Education
             (CBSE) from Kendriya Vidyalaya No.3 Agra Cantt, Uttar Pradesh
           </p>

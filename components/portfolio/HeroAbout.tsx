@@ -41,60 +41,46 @@ const About = () => {
       <>
         <section
           ref={ref}
-          className="flex justify-between items-center min-h-[90vh] flex-col md:flex-row md:max-w-[80vw] mx-auto overflow-hidden"
+          className="flex justify-between items-center flex-col md:flex-row md:max-w-[90vw] mx-auto overflow-hidden"
         >
           <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            <Image
-              src="/images/welcome.jpeg"
-              alt="siddhartha"
-              className="md:max-w-[30vw] p-10 object-cover rounded-lg"
-              height={500}
-              width={500}
-            />
-          </motion.div>
-
-          <motion.div
-            className="min-w-[45vw] flex flex-col font-thin gap-10 p-10 flex-wrap text-2xl leading-relaxed"
+            className="min-w-[45vw] flex flex-col font-light gap-8 p-10 flex-wrap text-lg md:text-xl leading-relaxed"
             variants={textVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
           >
-            <motion.p variants={containerVariants}>
+            <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-gray-500 dark:text-gray-400">
+              About Me
+            </span>
+
+            <motion.p variants={containerVariants} className="font-light">
               A Next.js developer, with a strong inclination towards challenging
               projects, designing and developing web applications. My Primary
               tech stack includes{" "}
-              <span className="text-red-900 dark:text-red-200">
+              <span className="text-red-900 dark:text-red-200 font-normal">
                 Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.
               </span>
             </motion.p>
 
-            <motion.p variants={containerVariants}>
+            <motion.p variants={containerVariants} className="font-light">
               Graduated from
-              <span className="text-red-900 dark:text-red-200 mx-1">
+              <span className="text-red-900 dark:text-red-200 mx-1 font-normal">
                 Vellore Institute of Technology, Bhopal
               </span>
               with Bachelor of Technology in ECE.
             </motion.p>
 
-            <Link href={`/portfolio/about`} className="w-full">
+            {/* <Link href={`/portfolio/about`} className="w-full">
               <motion.button
-                className="group relative inline-flex h-[calc(48px+8px)] min-w-[200px] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50"
+                className="group relative inline-flex h-12 px-8 items-center justify-center gap-2 rounded-full bg-black dark:bg-white text-white dark:text-black font-light text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.6, type: "spring", stiffness: 120 }}
               >
-                <span className="z-10 pr-2 text-base">View More About Me</span>
-                <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#e75050] bg-[#a02b2b] transition-[width] group-hover:w-[calc(100%-8px)]">
-                  <div className="mr-3.5 flex items-center justify-center">
-                    <ArrowRight />
-                  </div>
-                </div>
+                <span>View More About Me</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </motion.button>
-            </Link>
+            </Link> */}
           </motion.div>
         </section>
       </>

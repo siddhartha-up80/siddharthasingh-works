@@ -42,7 +42,7 @@ export function AboutImageIntro() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="h-full md:h-[40vh] relative w-full overflow-hidden bg-gradient-to-b from-purple-800 via-pink-500 to-red-400 flex flex-col items-center justify-center"
+      className="h-full md:h-[40vh] relative w-full overflow-hidden bg-gradient-to-br from-purple-600/90 via-pink-500/90 to-red-400/90 dark:from-purple-800/90 dark:via-pink-600/90 dark:to-red-500/90 flex flex-col items-center justify-center"
     >
       {/* Gradient background effect */}
       <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
@@ -51,16 +51,19 @@ export function AboutImageIntro() {
         className="flex items-center gap-10 max-w-6xl mx-auto justify-center w-full flex-col md:p-0 p-6 md:flex-row"
         variants={containerVariants}
       >
-        <motion.div variants={textVariants}>
+        <motion.div variants={textVariants} className="text-center">
+          <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-white/70 mb-4 block">
+            Philosophy
+          </span>
           <motion.h1
             className={cn(
-              "md:text-4xl text-center font-semibold text-xl text-white relative z-20"
+              "text-2xl md:text-5xl text-center font-light tracking-tight leading-tight text-white relative z-20"
             )}
           >
             <TextGenerateEffect
               duration={2}
               filter={false}
-              className="md:text-4xl text-center font-bold text-xl text-white relative z-20"
+              className="text-2xl md:text-5xl text-center font-light tracking-tight text-white relative z-20"
               words={`Turning ideas into functional and visually appealing web apps`}
             />
           </motion.h1>

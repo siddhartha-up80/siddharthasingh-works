@@ -26,7 +26,6 @@ const Page = () => {
       <QuickProjects />
       <AboutSkills />
       <AboutTimeline />
-      <AboutSetup />
       <AllProjects />
       <Contact />
       <QuickLinks
