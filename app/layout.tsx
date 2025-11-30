@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./calendar-custom.css";
 import Navbar from "@/components/main/navbar-top";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import DockFooter, { links } from "@/components/main/dock-footer";

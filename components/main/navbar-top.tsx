@@ -11,6 +11,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import DateTime from "./DateTime";
+import CalendarDialog from "./CalendarDialog";
+import AppointmentConfirmDialog from "./AppointmentConfirmDialog";
+import AppointmentMessageDialog from "./AppointmentMessageDialog";
 
 export default function Navbar({
   items,
@@ -18,6 +22,25 @@ export default function Navbar({
   items: { title: string; icon: React.ReactNode; href: string }[];
 }) {
   const pathname = usePathname();
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isMessageOpen, setIsMessageOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+  const handleDateTimeClick = () => {
+    setIsCalendarOpen(true);
+  };
+
+  const handleDateSelect = (date: Date) => {
+    setSelectedDate(date);
+    setIsCalendarOpen(false);
+    setIsConfirmOpen(true);
+  };
+
+  const handleConfirmAppointment = () => {
+    setIsConfirmOpen(false);
+    setIsMessageOpen(true);
+  };
 
   return (
     <div
@@ -31,11 +54,47 @@ export default function Navbar({
           })}
         </div>
 
+        {/* Center - DateTime */}
+        <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
+          <DateTime onClick={handleDateTimeClick} />
+        </div>
+
+        {/* Mobile - DateTime */}
+        <div className="block md:hidden">
+          <button
+            onClick={handleDateTimeClick}
+            className="text-xs font-medium px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          >
+            {new Date().toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+            })}
+          </button>
+        </div>
+
         <div className="flex gap-1 justify-self-end">
           <ThemeToggle />
           <MobileNav items={items} />
         </div>
       </div>
+
+      {/* Dialogs */}
+      <CalendarDialog
+        isOpen={isCalendarOpen}
+        onClose={() => setIsCalendarOpen(false)}
+        onDateSelect={handleDateSelect}
+      />
+      <AppointmentConfirmDialog
+        isOpen={isConfirmOpen}
+        onClose={() => setIsConfirmOpen(false)}
+        onConfirm={handleConfirmAppointment}
+        selectedDate={selectedDate}
+      />
+      <AppointmentMessageDialog
+        isOpen={isMessageOpen}
+        onClose={() => setIsMessageOpen(false)}
+        selectedDate={selectedDate}
+      />
     </div>
   );
 }
