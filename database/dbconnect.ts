@@ -24,25 +24,28 @@ async function dbConnect() {
     return cached.conn;
   }
   if (!cached.promise) {
-    try {
-      mongoose.connect(MONGODB_URI);
-      const connection = mongoose.connection;
+    const opts = {
+      bufferCommands: false,
+    };
 
-      connection.on("connected", () => {
+    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+      // Increase max listeners to prevent warnings during build
+      mongoose.connection.setMaxListeners(20);
+      
+      mongoose.connection.on("connected", () => {
         console.log("MongoDB connected successfully");
       });
 
-      connection.on("error", (err) => {
+      mongoose.connection.on("error", (err) => {
         console.log(
           "MongoDB connection error. Please make sure MongoDB is running. " +
             err
         );
         process.exit();
       });
-    } catch (error) {
-      console.log("Something goes wrong!");
-      console.log(error);
-    }
+
+      return mongoose;
+    });
   }
   try {
     cached.conn = await cached.promise;

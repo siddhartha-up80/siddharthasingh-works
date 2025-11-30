@@ -1,31 +1,26 @@
 import Image from "next/image";
 import React from "react";
-import list from "../list";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { getProjectBySlug, getAllProjects } from "@/services/projects";
 
 import type { Metadata } from "next";
 
-// const list = [
-//   {
-//     title: "Inators UI",
-//     type: "Full Stack",
-//     tech: "Next.js 14, React, Tailwind, Shadcn UI",
-//     slug: "inators-ui",
-//     img: "/images/inatorsui.png",
-//     description:
-//       "UI components library based on shadcn-ui and tailwind for developers and designers to make creating nextjs client side as well as server side interfaces easier.",
-//     details:
-//       "Inators UI is a comprehensive UI components library designed to streamline the process of creating interfaces using Next.js. Built upon shadcn-ui and Tailwind CSS, it offers a rich collection of components for both client-side and server-side rendering, catering to the needs of developers and designers alike. By leveraging the power of Next.js, it facilitates the seamless integration of these components into projects, enhancing efficiency and productivity. With its user-friendly interface and versatile features, Inators UI empowers teams to build dynamic and visually appealing web applications with ease.",
-//     link: "https://inatorsui.vercel.app/",
-//   },
+export async function generateStaticParams() {
+  const projects = await getAllProjects();
+  return projects.map((project: any) => ({
+    projects: project.slug,
+  }));
+}
 
-export const generateMetadata = ({ params }: any): Metadata => {
-  const info = list.find((inator) => inator.slug === params.projects);
+export const generateMetadata = async ({
+  params,
+}: any): Promise<Metadata> => {
+  const info = await getProjectBySlug(params.projects);
   return {
     title:
-      "Siddhartha Singh Projects | " + info?.title ||
-      "Project Details" + " | Portfolio Next.js Developer",
+      "Siddhartha Singh Projects | " +
+        info?.title || "Project Details" + " | Portfolio Next.js Developer",
     description:
       info?.description ||
       "Project details" +
@@ -50,8 +45,8 @@ export const generateMetadata = ({ params }: any): Metadata => {
   };
 };
 
-const Page = ({ params, searchParams }: any) => {
-  const info = list.find((inator) => inator.slug === params.projects);
+const Page = async ({ params, searchParams }: any) => {
+  const info = await getProjectBySlug(params.projects);
 
   //   console.log(info);
 
