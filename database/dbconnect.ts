@@ -5,12 +5,15 @@ declare global {
   var mongoose: any;
 }
 
-const MONGODB_URI = process.env.MONGODB_URI!;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!MONGODB_URI) {
-  throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env.local"
-  );
+function getMongoUri() {
+  if (!MONGODB_URI) {
+    throw new Error(
+      "Please define the MONGODB_URI environment variable inside .env.local",
+    );
+  }
+  return MONGODB_URI;
 }
 
 let cached = global.mongoose;
@@ -28,7 +31,7 @@ async function dbConnect() {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(getMongoUri(), opts).then((mongoose) => {
       // Increase max listeners to prevent warnings during build
       mongoose.connection.setMaxListeners(20);
 
@@ -39,7 +42,7 @@ async function dbConnect() {
       mongoose.connection.on("error", (err) => {
         console.log(
           "MongoDB connection error. Please make sure MongoDB is running. " +
-            err
+            err,
         );
         process.exit();
       });
