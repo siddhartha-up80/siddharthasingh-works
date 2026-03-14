@@ -7,7 +7,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LinkPreview } from "../ui/link-preview";
-import { getQuickProjects } from "@/services/projects";
 
 interface QuickProjectsProps {
   projects: Array<{
@@ -29,7 +28,7 @@ export default function index({ projects }: QuickProjectsProps): JSX.Element {
   return (
     <main className="" ref={container}>
       <section className="text-white w-full">
-        <h1 className="text-center text-black dark:text-white relative top-10 text-2xl md:text-5xl font-light tracking-tight">
+        <h1 className="text-center my-20 text-black dark:text-white relative top-10 text-2xl md:text-5xl font-light tracking-tight">
           Quick Projects
         </h1>
 
@@ -123,7 +122,7 @@ export const Card: React.FC<CardProps> = ({
               <LinkPreview url={url} className="no-underline group">
                 <button
                   className={cn(
-                    "relative flex gap-2 items-center rounded-full px-5 py-2.5 text-xs md:text-sm font-light bg-white/95 text-black backdrop-blur-sm transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+                    "relative flex gap-2 items-center rounded-full px-5 py-2.5 text-xs md:text-sm font-light bg-white/95 text-black backdrop-blur-sm transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent",
                   )}
                   type="button"
                 >

@@ -3,6 +3,16 @@ import { writeFile } from "fs/promises";
 import { join } from "path";
 import { existsSync, mkdirSync } from "fs";
 
+export const runtime = "nodejs";
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+const ALLOWED_MIME_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+]);
+
 export async function POST(request: NextRequest) {
   try {
     const data = await request.formData();
@@ -10,6 +20,20 @@ export async function POST(request: NextRequest) {
 
     if (!file) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
+    }
+
+    if (!ALLOWED_MIME_TYPES.has(file.type)) {
+      return NextResponse.json(
+        { error: "Unsupported file type" },
+        { status: 415 },
+      );
+    }
+
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        { error: "File too large. Max size is 5MB." },
+        { status: 413 },
+      );
     }
 
     const bytes = await file.arrayBuffer();
@@ -36,7 +60,7 @@ export async function POST(request: NextRequest) {
     console.error("Error uploading image:", error);
     return NextResponse.json(
       { error: "Failed to upload image" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

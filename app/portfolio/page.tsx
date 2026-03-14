@@ -12,6 +12,8 @@ import AllProjects from "@/components/portfolioProjects/AllProjects";
 import Contact from "@/components/portfolioContact/Contact";
 import { getAllProjects, getQuickProjects } from "@/services/projects";
 
+export const revalidate = 1800;
+
 export const metadata: Metadata = {
   title:
     "Siddhartha Singh | Work Portfolio | Next.js Developer | Inators Portfolio",

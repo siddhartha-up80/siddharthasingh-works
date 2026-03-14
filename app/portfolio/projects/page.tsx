@@ -6,6 +6,8 @@ import React from "react";
 import type { Metadata } from "next";
 import { getAllProjects } from "@/services/projects";
 
+export const revalidate = 1800;
+
 export const metadata: Metadata = {
   title:
     "Siddhartha Singh | Projects | Next.js Developer | Full Stack Developer | Inators Portfolio",

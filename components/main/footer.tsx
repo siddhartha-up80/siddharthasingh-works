@@ -2,26 +2,14 @@
 
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { links } from "./dock-footer";
-import { getUnsplashPhotos } from "@/services/pexels";
 
 export default function Footer() {
   const controls = useAnimation();
   const footerRef = useRef(null);
-  const [backgroundImage, setBackgroundImage] = useState(
-    "https://images.unsplash.com/photo-1515865404355-ddb5b0910878?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  );
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      const photos = await getUnsplashPhotos("cute", 5);
-      if (photos.length) {
-        setBackgroundImage(photos[0].urls.regular);
-      }
-    };
-    fetchImages();
-  }, []);
+  const backgroundImage =
+    "https://images.unsplash.com/photo-1515865404355-ddb5b0910878?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,7 +20,7 @@ export default function Footer() {
           controls.start("hidden");
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     const footerElement = footerRef.current;

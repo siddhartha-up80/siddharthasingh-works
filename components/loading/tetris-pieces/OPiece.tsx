@@ -11,4 +11,4 @@ const OPiece = forwardRef(({ className }: any, ref: any) => {
   );
 });
 
-export default motion(OPiece);
+export default motion.create(OPiece);

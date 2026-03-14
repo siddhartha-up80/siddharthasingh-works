@@ -12,4 +12,4 @@ const ZPiece = forwardRef(({ className }: any, ref: any) => {
   );
 });
 
-export default motion(ZPiece);
+export default motion.create(ZPiece);

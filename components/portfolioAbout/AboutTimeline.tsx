@@ -4,13 +4,12 @@ import { motion } from "framer-motion";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
 import { WobbleCard } from "../ui/wobble-card";
 
 export function AboutTimeline() {
   const data = [
     {
-      title: "2025 - Graduate Engineer Trainee, LTIMindtree",
+      title: "2025 - Software Engineer, LTIMindtree",
       content: (
         <WobbleCard containerClassName="col-span-1 lg:col-span-2 md:max-h-full max-h-[50vh] md:h-full bg-pink-800 text-white w-full shadow-xl hover:bg-pink-600 transition duration-500 ease-in-out transform hover:scale-105">
           <div className="flex justify-center items-center w-full">
@@ -24,7 +23,8 @@ export function AboutTimeline() {
             />
           </div>
           <p className="mt-4 text-center text-xs md:text-sm font-light leading-relaxed">
-            Graduate Engineer Trainee at LTIMindtree, working on IBM Mainframe.
+            Software Engineer at LTIMindtree, 
+          focusing on development, banking solutions, and AI-driven applications.
           </p>
         </WobbleCard>
       ),

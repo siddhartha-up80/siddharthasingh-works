@@ -12,4 +12,4 @@ const SPiece = forwardRef(({ className }: any, ref: any) => {
   );
 });
 
-export default motion(SPiece);
+export default motion.create(SPiece);

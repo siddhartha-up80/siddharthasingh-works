@@ -23,13 +23,6 @@ export default function CMSProjectsPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Check authentication
-    const auth = sessionStorage.getItem("cms_auth");
-    if (!auth) {
-      router.push("/cms");
-      return;
-    }
-
     fetchProjects();
   }, []);
 
@@ -62,8 +55,8 @@ export default function CMSProjectsPage() {
     }
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem("cms_auth");
+  const handleLogout = async () => {
+    await fetch("/api/cms/logout", { method: "POST" });
     router.push("/cms");
   };
 

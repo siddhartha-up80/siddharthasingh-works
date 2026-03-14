@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Upload } from "lucide-react";
@@ -23,13 +23,6 @@ export default function NewProjectPage() {
     order: 0,
     isQuickProject: false,
   });
-
-  useEffect(() => {
-    const auth = sessionStorage.getItem("cms_auth");
-    if (!auth) {
-      router.push("/cms");
-    }
-  }, []);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

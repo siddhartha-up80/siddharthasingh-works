@@ -19,33 +19,44 @@ function getMongoUri() {
 let cached = global.mongoose;
 
 if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
+  cached = global.mongoose = {
+    conn: null,
+    promise: null,
+    listenersBound: false,
+  };
 }
 
 async function dbConnect() {
+  if (mongoose.connection.readyState === 1) {
+    return mongoose;
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
+
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      serverSelectionTimeoutMS: 7000,
+      connectTimeoutMS: 10000,
+      socketTimeoutMS: 45000,
+      maxPoolSize: 10,
     };
 
     cached.promise = mongoose.connect(getMongoUri(), opts).then((mongoose) => {
-      // Increase max listeners to prevent warnings during build
-      mongoose.connection.setMaxListeners(20);
+      if (!cached.listenersBound) {
+        cached.listenersBound = true;
+        mongoose.connection.setMaxListeners(20);
 
-      mongoose.connection.on("connected", () => {
-        console.log("MongoDB connected successfully");
-      });
+        mongoose.connection.on("connected", () => {
+          console.log("MongoDB connected successfully");
+        });
 
-      mongoose.connection.on("error", (err) => {
-        console.log(
-          "MongoDB connection error. Please make sure MongoDB is running. " +
-            err,
-        );
-        process.exit();
-      });
+        mongoose.connection.on("error", (err) => {
+          console.error("MongoDB connection error:", err?.message || err);
+        });
+      }
 
       return mongoose;
     });

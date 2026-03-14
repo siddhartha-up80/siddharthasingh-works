@@ -32,15 +32,15 @@ const HeroPortfolio = () => {
               />
             </span>
           </div>
-          <motion.p
+          {/* <motion.p
             className="mt-8 mb-10 text-sm sm:text-base font-light text-gray-600 dark:text-gray-400 leading-relaxed sm:mb-14"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 1 }}
           >
             Scroll down and check out my work, or contact me
-          </motion.p>
-          <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+          </motion.p> */}
+          <div className="flex flex-col mt-10 space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <Link href="/portfolio/contact">
               <motion.button
                 className="group relative inline-flex h-12 px-8 items-center justify-center gap-2 rounded-full bg-black dark:bg-white text-white dark:text-black font-light text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"

@@ -15,16 +15,30 @@ export async function GET(request: NextRequest) {
 
     if (type === "quick") {
       const projects = await getQuickProjects();
-      return NextResponse.json({ projects });
+      return NextResponse.json(
+        { projects },
+        {
+          headers: {
+            "Cache-Control": "public, s-maxage=300, stale-while-revalidate=900",
+          },
+        },
+      );
     }
 
     const projects = await getAllProjects();
-    return NextResponse.json({ projects });
+    return NextResponse.json(
+      { projects },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=900",
+        },
+      },
+    );
   } catch (error) {
     console.error("Error in GET /api/projects:", error);
     return NextResponse.json(
       { error: "Failed to fetch projects" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -39,7 +53,7 @@ export async function POST(request: NextRequest) {
     console.error("Error in POST /api/projects:", error);
     return NextResponse.json(
       { error: "Failed to create project" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -53,7 +67,7 @@ export async function PUT(request: NextRequest) {
     if (!id) {
       return NextResponse.json(
         { error: "Project ID is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -63,7 +77,7 @@ export async function PUT(request: NextRequest) {
     console.error("Error in PUT /api/projects:", error);
     return NextResponse.json(
       { error: "Failed to update project" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -77,7 +91,7 @@ export async function DELETE(request: NextRequest) {
     if (!id) {
       return NextResponse.json(
         { error: "Project ID is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -87,7 +101,7 @@ export async function DELETE(request: NextRequest) {
     console.error("Error in DELETE /api/projects:", error);
     return NextResponse.json(
       { error: "Failed to delete project" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

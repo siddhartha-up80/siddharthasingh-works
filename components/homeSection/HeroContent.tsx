@@ -78,7 +78,7 @@ export function HeroContent() {
       onClick: () =>
         window.open(
           "https://www.linkedin.com/in/siddhartha-singh-work",
-          "_blank"
+          "_blank",
         ),
       button: true,
     },
@@ -152,16 +152,6 @@ export function HeroContent() {
         <span className="font-semibold -mt-2">
           Follow me on all social media platforms
         </span>
-
-        {/* <span className=" font-normal">
-          <TextGenerateEffect
-            words={`
-                Follow me on Instagram, Github, Twitter & Linkedin
-              `}
-            filter={false}
-            duration={3}
-          />
-        </span> */}
       </motion.h1>
 
       <motion.div
@@ -192,44 +182,43 @@ export function HeroContent() {
         justify-center
         "
         >
-          {socialButtons.map((link, index) => (
-            <>
-              {link.button && (
-                <div
-                  className="cursor-pointer group !z-[1000] relative inline-flex h-[calc(48px+8px)] w-[80vw] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50  md:w-[calc(33.333%-100px)]"
-                  onClick={link.onClick}
-                >
-                  <div className="absolute left-1 inline-flex h-12 w-12 items-center justify-center rounded-full dark:bg-white bg-white ">
-                    <div className=" flex items-center justify-center">
-                      <Image
-                        src={link.image}
-                        alt={link.label}
-                        className="rounded-full size-10"
-                        width={100}
-                        height={100}
-                      />
-                    </div>
+          {socialButtons.map((link) =>
+            link.button ? (
+              <div
+                key={link.label}
+                className="cursor-pointer group !z-[1000] relative inline-flex h-[calc(48px+8px)] w-[80vw] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50  md:w-[calc(33.333%-100px)]"
+                onClick={link.onClick}
+              >
+                <div className="absolute left-1 inline-flex h-12 w-12 items-center justify-center rounded-full dark:bg-white bg-white ">
+                  <div className=" flex items-center justify-center">
+                    <Image
+                      src={link.image}
+                      alt={link.label}
+                      className="rounded-full size-10"
+                      width={100}
+                      height={100}
+                    />
                   </div>
-                  <span className="z-10 pr-2">{link.label}</span>
-                  <div
-                    className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#e75050] bg-[#a02b2b] transition-[width] group-hover:w-[calc(100%-8px)]"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="mr-3.5 flex items-center justify-center">
-                      <div
-                        onClick={() => {
-                          setIsModalOpen(true);
-                          setModalContent(link.profileName);
-                        }}
-                      >
-                        <MoreVerticalIcon className="size-4" />
-                      </div>
+                </div>
+                <span className="z-10 pr-2">{link.label}</span>
+                <div
+                  className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#e75050] bg-[#a02b2b] transition-[width] group-hover:w-[calc(100%-8px)]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="mr-3.5 flex items-center justify-center">
+                    <div
+                      onClick={() => {
+                        setIsModalOpen(true);
+                        setModalContent(link.profileName);
+                      }}
+                    >
+                      <MoreVerticalIcon className="size-4" />
                     </div>
                   </div>
                 </div>
-              )}
-            </>
-          ))}
+              </div>
+            ) : null,
+          )}
         </div>
       </motion.div>
 
@@ -260,6 +249,7 @@ export function HeroContent() {
             <div className="flex mt-10 gap-6 flex-wrap w-full mx-auto justify-center items-center py-4">
               {socialButtons.map((button) => (
                 <button
+                  key={button.label}
                   className="flex items-center flex-col"
                   onClick={button.onClick}
                 >

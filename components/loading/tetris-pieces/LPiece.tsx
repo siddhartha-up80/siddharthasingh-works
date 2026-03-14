@@ -12,4 +12,4 @@ const LPiece = forwardRef(({ className }: any, ref: any) => {
   );
 });
 
-export default motion(LPiece);
+export default motion.create(LPiece);

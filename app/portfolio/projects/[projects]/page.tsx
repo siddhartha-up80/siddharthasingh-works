@@ -6,6 +6,8 @@ import { getProjectBySlug, getAllProjects } from "@/services/projects";
 
 import type { Metadata } from "next";
 
+export const revalidate = 1800;
+
 export async function generateStaticParams() {
   const projects = await getAllProjects();
   return projects.map((project: any) => ({

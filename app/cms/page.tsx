@@ -6,21 +6,33 @@ import { useRouter } from "next/navigation";
 export default function CMSAuthPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
 
-    // Simple password check
-    if (
-      password === process.env.NEXT_PUBLIC_CMS_PASSWORD ||
-      password === "admin123"
-    ) {
-      // Store in sessionStorage
-      sessionStorage.setItem("cms_auth", "true");
-      router.push("/cms/projects");
-    } else {
+    try {
+      const response = await fetch("/api/cms/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        router.push("/cms/projects");
+        return;
+      }
+
       setError("Invalid password");
+    } catch {
+      setError("Failed to login. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -51,14 +63,12 @@ export default function CMSAuthPage() {
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
           >
-            Access CMS
+            {loading ? "Checking..." : "Access CMS"}
           </button>
         </form>
-        {/* <p className="mt-4 text-xs text-center text-gray-500 dark:text-gray-400">
-          Default password: admin123
-        </p> */}
       </div>
     </div>
   );

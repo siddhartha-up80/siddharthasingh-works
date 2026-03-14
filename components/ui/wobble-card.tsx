@@ -38,7 +38,7 @@ export const WobbleCard = ({
       }}
       className={cn(
         "mx-auto w-full bg-indigo-800  relative rounded-2xl overflow-hidden",
-        containerClassName
+        containerClassName,
       )}
     >
       <div
@@ -70,8 +70,9 @@ const Noise = () => {
     <div
       className="absolute inset-0 w-full h-full scale-[1.2] transform opacity-10 [mask-image:radial-gradient(#fff,transparent,75%)]"
       style={{
-        backgroundImage: "url(/noise.webp)",
-        backgroundSize: "30%",
+        backgroundImage:
+          "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25) 0.8px, transparent 1px), radial-gradient(circle at 70% 60%, rgba(255,255,255,0.2) 0.8px, transparent 1px), radial-gradient(circle at 40% 80%, rgba(255,255,255,0.18) 0.8px, transparent 1px)",
+        backgroundSize: "8px 8px, 10px 10px, 12px 12px",
       }}
     ></div>
   );

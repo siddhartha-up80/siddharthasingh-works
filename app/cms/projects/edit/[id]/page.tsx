@@ -29,12 +29,6 @@ export default function EditProjectPage() {
   });
 
   useEffect(() => {
-    const auth = sessionStorage.getItem("cms_auth");
-    if (!auth) {
-      router.push("/cms");
-      return;
-    }
-
     fetchProject();
   }, [projectId]);
 

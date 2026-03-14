@@ -57,12 +57,6 @@ export const LinkPreview = ({
 
   const [isOpen, setOpen] = React.useState(false);
 
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);
 
@@ -77,20 +71,6 @@ export const LinkPreview = ({
 
   return (
     <>
-      {isMounted ? (
-        <div className="hidden">
-          <Image
-            src={src}
-            width={width}
-            height={height}
-            quality={quality}
-            layout={layout}
-            priority={true}
-            alt="hidden image"
-          />
-        </div>
-      ) : null}
-
       <HoverCardPrimitive.Root
         openDelay={50}
         closeDelay={100}
@@ -143,7 +123,9 @@ export const LinkPreview = ({
                     height={height}
                     quality={quality}
                     layout={layout}
-                    priority={true}
+                    priority={false}
+                    loading="lazy"
+                    unoptimized={!isStatic}
                     className="rounded-lg"
                     alt="preview image"
                   />

@@ -12,4 +12,4 @@ const TPiece = forwardRef(({ className }: any, ref: any) => {
   );
 });
 
-export default motion(TPiece);
+export default motion.create(TPiece);

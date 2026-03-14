@@ -12,4 +12,4 @@ const JPiece = forwardRef(({ className }: any, ref: any) => {
   );
 });
 
-export default motion(JPiece);
+export default motion.create(JPiece);
