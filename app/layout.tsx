@@ -21,6 +21,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://siddharthasingh.co.in"),
   title: "Siddhartha Singh | Portfolio Next.js Developer | Inators Portfolio",
   description:
     "This is Siddhartha Singh A Next.js Full-Stack web developer, with a strong inclination towards challenging projects, designing and developing web applications. My Primary tech stack includes Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.",

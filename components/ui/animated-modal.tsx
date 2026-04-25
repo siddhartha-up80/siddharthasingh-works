@@ -16,24 +16,17 @@ export function AnimatedModal({
   children,
   className,
 }: AnimatedModalProps) {
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "auto";
-  }, [open]);
-
   const modalRef = useRef<HTMLDivElement>(null);
   useOutsideClick(modalRef, () => onOpenChange(false));
 
-  const originalOverflow = useRef(document.body.style.overflow);
-
   useEffect(() => {
     if (open) {
+      const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = originalOverflow.current;
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
     }
-    return () => {
-      document.body.style.overflow = originalOverflow.current;
-    };
   }, [open]);
 
   return (
