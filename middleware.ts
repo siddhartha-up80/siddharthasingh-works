@@ -206,6 +206,8 @@ export async function middleware(request: NextRequest) {
     "style-src 'self' 'unsafe-inline'",
     scriptSrc,
     "connect-src 'self' https:",
+    // Allow Google Drive iframes on the /resume page
+    "frame-src 'self' https://drive.google.com https://docs.google.com",
   ].join("; ");
 
   response.headers.set("Content-Security-Policy", contentSecurityPolicy);

@@ -116,7 +116,7 @@ export const Card: React.FC<CardProps> = ({
     <div className="h-screen flex items-center justify-center sticky top-0">
       <div
         className={cn(
-          "flex flex-col relative -top-[25%] md:h-[70%] h-max w-[90%] rounded-3xl md:p-12 p-6 origin-center backdrop-blur-sm border border-white/10 shadow-2xl overflow-hidden",
+          "flex flex-col relative -top-[25%] md:h-auto h-max w-[90%] rounded-3xl md:p-12 p-6 origin-center backdrop-blur-sm border border-white/10 shadow-2xl overflow-hidden",
           topOffsetClass,
         )}
       >
@@ -125,17 +125,17 @@ export const Card: React.FC<CardProps> = ({
           className={cn("absolute inset-0 opacity-90 -z-10", gradientClass)}
         />
 
-        <h2 className="text-xl md:text-3xl font-light tracking-tight leading-tight mb-1 text-white">
-          {title.split(":")[0]}
-        </h2>
-        <p className="text-xs md:text-sm font-light text-white/80 mb-6">
-          {title.includes(":") ? title.split(":")[1].trim() : ""}
-        </p>
-
         <div
-          className={`flex h-full md:flex-row flex-col-reverse gap-6 md:gap-8`}
+          className={`flex w-full md:flex-row flex-col-reverse gap-6 md:gap-8 items-center`}
         >
-          <div className={`md:w-[40%] flex flex-col`}>
+          <div className={`md:w-[40%] flex flex-col w-full`}>
+            <h2 className="text-xl md:text-3xl font-light tracking-tight leading-tight mb-1 text-white">
+              {title.split(":")[0]}
+            </h2>
+            <p className="text-xs md:text-sm font-light text-white/80 mb-4">
+              {title.includes(":") ? title.split(":")[1].trim() : ""}
+            </p>
+            
             <p className="text-xs md:text-sm font-light leading-relaxed text-white/90">
               {description}
             </p>
@@ -156,14 +156,14 @@ export const Card: React.FC<CardProps> = ({
           </div>
 
           <div
-            className={`relative md:w-[60%] w-[100%] rounded-xl overflow-hidden shadow-xl ring-1 ring-white/20 flex items-center justify-center bg-white/5 p-2 md:p-6 lg:bottom-20`}
+            className={`relative md:w-[60%] w-[100%] rounded-xl overflow-hidden shadow-xl ring-1 ring-white/20 flex items-center justify-center bg-white/5 p-2 md:p-6`}
           >
             <Image
               src={src}
               alt="image"
               width={1200}
               height={800}
-              className="object-contain w-full h-full rounded-xl"
+              className="object-cover w-full h-auto rounded-xl"
             />
           </div>
         </div>

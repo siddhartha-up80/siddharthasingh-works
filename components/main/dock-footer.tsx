@@ -38,7 +38,7 @@ export const links = [
     icon: (
       <Newspaper className="h-full w-full text-red-500 dark:text-red-300" />
     ),
-    href: "https://drive.google.com/file/d/1o120BxSp6esypJp8SvdpDE-F-8HYTzEO/view",
+    href: "/resume",
   },
   {
     title: "Contact",
