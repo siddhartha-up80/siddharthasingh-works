@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 
 const Page = async () => {
   const quickProjects = await getQuickProjects();
-  const allProjects = await getAllProjects();
 
   return (
     <div className="space-y-5">
@@ -31,8 +30,8 @@ const Page = async () => {
       <About />
       <QuickProjects projects={quickProjects} />
       <AboutSkills />
-      <AboutTimeline />
-      <AllProjects projects={allProjects} />
+      {/* <AboutTimeline /> */}
+      {/* <AllProjects projects={allProjects} /> */}
       <Contact />
       <QuickLinks
         forwardLink={`/portfolio/about`}

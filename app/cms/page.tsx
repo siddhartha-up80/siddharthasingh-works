@@ -28,7 +28,8 @@ export default function CMSAuthPage() {
         return;
       }
 
-      setError("Invalid password");
+      const payload = await response.json().catch(() => null);
+      setError(payload?.error || "Unable to login. Please try again.");
     } catch {
       setError("Failed to login. Please try again.");
     } finally {

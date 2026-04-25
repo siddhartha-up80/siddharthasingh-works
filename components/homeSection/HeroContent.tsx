@@ -1,29 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import Link from "next/link";
+import React from "react";
 import Image from "next/image";
-import {
-  GithubIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  MoreVerticalIcon,
-  Share,
-  Share2Icon,
-  TwitterIcon,
-} from "lucide-react";
-import { TextGenerateEffect } from "../ui/text-generate-effect";
-import {
-  AnimatedModal,
-  AnimatedModalContent,
-  AnimatedModalFooter,
-} from "../ui/animated-modal";
+import { MoreVerticalIcon, Share2Icon } from "lucide-react";
+import { AnimatedModal, AnimatedModalContent } from "../ui/animated-modal";
 import { useState } from "react";
-import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { useToast } from "@/hooks/use-toast";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "sonner";
+import {
+  InstagramSvgIcon,
+  GithubSvgIcon,
+  XTwitterSvgIcon,
+  LinkedinSvgIcon,
+  EmailSvgIcon,
+  TerminalSvgIcon,
+  ShareSvgIcon,
+} from "../ui/social-icons";
 
 export function HeroContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,19 +25,18 @@ export function HeroContent() {
   const socialButtons = [
     {
       label: "Share",
-      image: "/images/share.png",
+      icon: <ShareSvgIcon size={28} className="text-gray-700 dark:text-white" />,
       profileName: "Share",
       profileImage: "/images/siddharthacircle.png",
       onClick: () => {
         navigator.clipboard.writeText("https://siddharthasingh.co.in");
-        toast("Link copied to clipboard!");
+        toast.success("Link copied to clipboard!");
       },
-
       button: false,
     },
     {
       label: "Instagram",
-      image: "/images/instagram.png",
+      icon: <InstagramSvgIcon size={32} />,
       profileImage: "/images/siddharthacircle.png",
       profileName: "sid_up80",
       onClick: () =>
@@ -54,7 +45,7 @@ export function HeroContent() {
     },
     {
       label: "Github",
-      image: "/images/github.png",
+      icon: <GithubSvgIcon size={30} className="text-gray-800 dark:text-white" />,
       profileImage: "/images/siddharthacircle.png",
       profileName: "siddhartha-up80",
       onClick: () =>
@@ -63,7 +54,7 @@ export function HeroContent() {
     },
     {
       label: "Twitter",
-      image: "/images/x.png",
+      icon: <XTwitterSvgIcon size={28} className="text-gray-900 dark:text-white" />,
       profileImage: "/images/siddharthacircle.png",
       profileName: "siddhartha_up80",
       onClick: () =>
@@ -72,7 +63,7 @@ export function HeroContent() {
     },
     {
       label: "Linkedin",
-      image: "/images/linkedin.png",
+      icon: <LinkedinSvgIcon size={32} />,
       profileImage: "/images/siddharthacircle.png",
       profileName: "siddhartha-singh-work",
       onClick: () =>
@@ -84,7 +75,7 @@ export function HeroContent() {
     },
     {
       label: "Email",
-      image: "/images/email.png",
+      icon: <EmailSvgIcon size={32} />,
       profileImage: "/images/siddharthacircle.png",
       profileName: "siddhartha.singh3093@gmail.com",
       onClick: () =>
@@ -93,7 +84,7 @@ export function HeroContent() {
     },
     {
       label: "Portfolio",
-      image: "/images/terminal.png",
+      icon: <TerminalSvgIcon size={28} className="text-emerald-600 dark:text-emerald-400" />,
       profileImage: "/images/siddharthacircle.png",
       profileName: "https://siddharthasingh.co.in/portfolio",
       onClick: () =>
@@ -111,33 +102,14 @@ export function HeroContent() {
           setIsModalOpen(true);
           setModalContent("https://siddharthasingh.co.in");
           navigator.clipboard.writeText("https://siddharthasingh.co.in");
-          toast("Link copied to clipboard!");
+          toast.success("Link copied to clipboard!");
         }}
       >
         <Share2Icon size={25} className="dark:text-black text-white" />
       </button>
 
-      <motion.h1
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: [20, -5, 0],
-        }}
-        transition={{
-          duration: 3,
-          ease: [0.4, 0.0, 0.2, 1],
-        }}
-        className="px-4 font-bold text-neutral-700 dark:text-white flex-col flex md:gap-4 gap-2 text-center mx-auto"
-      >
-        <motion.div
-          className="flex items-center justify-center h-max"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-        >
+      <h1 className="px-4 font-bold text-neutral-700 dark:text-white flex-col flex md:gap-4 gap-2 text-center mx-auto">
+        <div className="flex items-center justify-center h-max">
           <Image
             height={1000}
             width={1000}
@@ -145,30 +117,16 @@ export function HeroContent() {
             alt="Portfolio Image"
             className="object-contain w-[20vh] "
           />
-        </motion.div>
-        <Highlight className="text-black dark:text-white md:px-5 w-max mx-auto">
+        </div>
+        <span className="relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-green-300 to-green-300 dark:from-green-900 dark:to-green-950 text-black dark:text-white md:px-5 w-max mx-auto">
           <span className="font-semibold text-xl">Siddhartha Singh</span>
-        </Highlight>
+        </span>
         <span className="font-semibold -mt-2">
           Follow me on all social media platforms
         </span>
-      </motion.h1>
+      </h1>
 
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: [20, -5, 0],
-        }}
-        transition={{
-          duration: 3,
-          ease: [0.4, 0.0, 0.2, 1],
-        }}
-        className="w-full mt-10"
-      >
+      <div className="w-full mt-10">
         <div
           className="
         flex
@@ -186,18 +144,12 @@ export function HeroContent() {
             link.button ? (
               <div
                 key={link.label}
-                className="cursor-pointer group !z-[1000] relative inline-flex h-[calc(48px+8px)] w-[80vw] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50  md:w-[calc(33.333%-100px)]"
+                className="cursor-pointer group relative inline-flex h-[calc(48px+8px)] w-[80vw] bg-gradient-to-r dark:from-[#410707] dark:to-[#571414] from-[#ffc0c0] to-[#ff4c4c] border-2 border-[#e26565] items-center justify-center rounded-full py-1 pl-6 pr-14 font-medium text-neutral-50  md:w-[calc(33.333%-100px)]"
                 onClick={link.onClick}
               >
                 <div className="absolute left-1 inline-flex h-12 w-12 items-center justify-center rounded-full dark:bg-white bg-white ">
-                  <div className=" flex items-center justify-center">
-                    <Image
-                      src={link.image}
-                      alt={link.label}
-                      className="rounded-full size-10"
-                      width={100}
-                      height={100}
-                    />
+                  <div className="flex items-center justify-center">
+                    {link.icon}
                   </div>
                 </div>
                 <span className="z-10 pr-2">{link.label}</span>
@@ -220,53 +172,49 @@ export function HeroContent() {
             ) : null,
           )}
         </div>
-      </motion.div>
+      </div>
 
-      {isModalOpen && (
-        <AnimatedModal
-          open={isModalOpen}
-          onOpenChange={(val) => {
-            setIsModalOpen(val);
+      <AnimatedModal
+        open={isModalOpen}
+        onOpenChange={(val) => {
+          setIsModalOpen(val);
+          if (!val) {
             setModalContent(null);
-          }}
-        >
-          <AnimatedModalContent className="min-w-[40vw]">
-            <div className="flex flex-col items-center gap-4 py-6 bg-red-900 rounded-2xl">
-              <Avatar className="h-24 w-24">
-                <AvatarImage src={avatarUrl} />
-                <AvatarFallback>UN</AvatarFallback>
-              </Avatar>
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold text-white">
-                  Siddhartha Singh
-                </h3>
-                <p className="text-sm text-muted-foreground text-white">
-                  {modalContent}
-                </p>
-              </div>
+          }
+        }}
+      >
+        <AnimatedModalContent className="min-w-[40vw]">
+          <div className="flex flex-col items-center gap-4 py-6 bg-red-900 rounded-2xl">
+            <Avatar className="h-24 w-24">
+              <AvatarImage src={avatarUrl} />
+              <AvatarFallback>UN</AvatarFallback>
+            </Avatar>
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold text-white">
+                Siddhartha Singh
+              </h3>
+              <p className="text-sm text-muted-foreground text-white">
+                {modalContent}
+              </p>
             </div>
+          </div>
 
-            <div className="flex mt-10 gap-6 flex-wrap w-full mx-auto justify-center items-center py-4">
-              {socialButtons.map((button) => (
-                <button
-                  key={button.label}
-                  className="flex items-center flex-col"
-                  onClick={button.onClick}
-                >
-                  <Image
-                    src={button.image}
-                    alt={button.label}
-                    className=" rounded-2xl size-14 bg-white dark:bg-white p-1"
-                    width={100}
-                    height={100}
-                  />
-                  {button.label}
-                </button>
-              ))}
-            </div>
-          </AnimatedModalContent>
-        </AnimatedModal>
-      )}
+          <div className="flex mt-10 gap-6 flex-wrap w-full mx-auto justify-center items-center py-4">
+            {socialButtons.map((button) => (
+              <button
+                key={button.label}
+                className="flex items-center flex-col"
+                onClick={button.onClick}
+              >
+                <div className="rounded-2xl size-14 bg-white dark:bg-white p-2.5 flex items-center justify-center shadow-sm">
+                  {React.cloneElement(button.icon as React.ReactElement, { size: 36 })}
+                </div>
+                <span className="text-sm mt-1">{button.label}</span>
+              </button>
+            ))}
+          </div>
+        </AnimatedModalContent>
+      </AnimatedModal>
     </section>
   );
 }

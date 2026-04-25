@@ -2,11 +2,11 @@
 
 import { sendEmail } from "@/services/mails";
 import {
-  GithubIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  TwitterIcon,
-} from "lucide-react";
+  InstagramSvgIcon,
+  GithubSvgIcon,
+  XTwitterSvgIcon,
+  LinkedinSvgIcon,
+} from "../ui/social-icons";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -16,28 +16,40 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [sucessfullMessage, setSucessfullMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const sendEmailMessage = async (event: React.FormEvent) => {
     event.preventDefault(); // Prevent page refresh
 
-    if (!email || !message) {
-      alert("Email and message are required");
+    setErrorMessage("");
+    setSucessfullMessage("");
+
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
+    if (!trimmedEmail || !trimmedMessage) {
+      setErrorMessage("Email and message are required");
       return;
     }
 
     try {
       setLoading(true);
-      await sendEmail({
-        sentByEmail: email,
-        body: message,
+      const result = await sendEmail({
+        sentByEmail: trimmedEmail,
+        body: trimmedMessage,
       });
-      // alert("Message sent successfully");
+
+      if (result.error) {
+        setErrorMessage(result.error);
+        return;
+      }
+
       setEmail("");
       setMessage("");
       setSucessfullMessage("Message sent successfully");
     } catch (error) {
       console.log("Failed to send email:", error);
-      alert("Failed to send Message. Please try again later.");
+      setErrorMessage("Failed to send Message. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -80,7 +92,7 @@ const Contact = () => {
                   {
                     href: "https://www.instagram.com/sid_up80",
                     icon: (
-                      <InstagramIcon
+                      <InstagramSvgIcon
                         size={40}
                         className="hover:scale-110 transition-transform duration-300"
                       />
@@ -89,25 +101,25 @@ const Contact = () => {
                   {
                     href: "https://github.com/siddhartha-up80",
                     icon: (
-                      <GithubIcon
+                      <GithubSvgIcon
                         size={40}
-                        className="hover:scale-110 transition-transform duration-300"
+                        className="hover:scale-110 transition-transform duration-300 text-gray-800 dark:text-white"
                       />
                     ),
                   },
                   {
                     href: "https://twitter.com/siddhartha_up80",
                     icon: (
-                      <TwitterIcon
+                      <XTwitterSvgIcon
                         size={40}
-                        className="hover:scale-110 transition-transform duration-300"
+                        className="hover:scale-110 transition-transform duration-300 text-gray-900 dark:text-white"
                       />
                     ),
                   },
                   {
                     href: "https://www.linkedin.com/in/siddhartha-singh-work",
                     icon: (
-                      <LinkedinIcon
+                      <LinkedinSvgIcon
                         size={40}
                         className="hover:scale-110 transition-transform duration-300"
                       />
@@ -126,10 +138,10 @@ const Contact = () => {
                         {link.href.includes("instagram")
                           ? "Instagram"
                           : link.href.includes("github")
-                          ? "Github"
-                          : link.href.includes("twitter")
-                          ? "Twitter"
-                          : "Linkedin"}
+                            ? "Github"
+                            : link.href.includes("twitter")
+                              ? "Twitter"
+                              : "Linkedin"}
                       </span>
                     </Link>
                   </li>
@@ -176,12 +188,19 @@ const Contact = () => {
                 required
               />
             </div>
-            <button className="text-white bg-black dark:bg-white dark:text-black border-0 py-3 px-8 focus:outline-none hover:scale-105 transition-transform rounded-full text-sm font-light">
+            <button
+              type="submit"
+              disabled={loading}
+              className="text-white bg-black dark:bg-white dark:text-black border-0 py-3 px-8 focus:outline-none hover:scale-105 transition-transform rounded-full text-sm font-light disabled:cursor-not-allowed disabled:opacity-60"
+            >
               {loading ? "Sending..." : "Send Message"}
             </button>
             <p className="text-xs text-green-500 mt-3 text-center font-light">
               {loading && "Sending message..."}
               {sucessfullMessage}
+            </p>
+            <p className="text-xs text-red-500 mt-2 text-center font-light">
+              {errorMessage}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center font-light">
               Send me your message and I will get back to you as soon as

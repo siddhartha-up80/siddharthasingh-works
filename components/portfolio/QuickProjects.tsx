@@ -1,9 +1,6 @@
 "use client";
 
-import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
-import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LinkPreview } from "../ui/link-preview";
@@ -20,20 +17,14 @@ interface QuickProjectsProps {
 }
 
 export default function index({ projects }: QuickProjectsProps): JSX.Element {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
   return (
-    <main className="" ref={container}>
+    <main>
       <section className="text-white w-full">
         <h1 className="text-center my-20 text-black dark:text-white relative top-10 text-2xl md:text-5xl font-light tracking-tight">
           Quick Projects
         </h1>
 
         {projects.map((project, i) => {
-          const targetScale = 1 - (projects.length - i) * 0.05;
           return (
             <Card
               key={`p_${i}`}
@@ -43,9 +34,6 @@ export default function index({ projects }: QuickProjectsProps): JSX.Element {
               title={project?.title}
               color={project?.color || "#000000"}
               description={project?.description}
-              progress={scrollYProgress}
-              range={[i * 0.14, 1]}
-              targetScale={targetScale}
             />
           );
         })}
@@ -60,10 +48,59 @@ interface CardProps {
   src: string;
   url: string;
   color: string;
-  progress: MotionValue<number>;
-  range: [number, number];
-  targetScale: number;
 }
+
+const CARD_TOP_OFFSET_CLASSES = [
+  "top-[-5vh]",
+  "top-[20px]",
+  "top-[45px]",
+  "top-[70px]",
+  "top-[95px]",
+  "top-[120px]",
+  "top-[145px]",
+  "top-[170px]",
+  "top-[195px]",
+  "top-[220px]",
+  "top-[245px]",
+  "top-[270px]",
+];
+
+const COLOR_GRADIENT_CLASS_MAP: Record<string, string> = {
+  "#ec4889": "bg-gradient-to-br from-[#ec4889] to-[#be185d]",
+  "#1b0a02": "bg-gradient-to-br from-[#1b0a02] to-[#3b1f0f]",
+  "#1a80da": "bg-gradient-to-br from-[#1a80da] to-[#0f4f87]",
+  "#0e1929": "bg-gradient-to-br from-[#0e1929] to-[#1e293b]",
+  "#e11d48": "bg-gradient-to-br from-[#e11d48] to-[#9f1239]",
+  "#fa9614": "bg-gradient-to-br from-[#fa9614] to-[#c2410c]",
+};
+
+const FALLBACK_GRADIENT_CLASSES = [
+  "bg-gradient-to-br from-slate-900 to-slate-700",
+  "bg-gradient-to-br from-blue-900 to-slate-700",
+  "bg-gradient-to-br from-rose-900 to-slate-800",
+  "bg-gradient-to-br from-emerald-900 to-slate-800",
+  "bg-gradient-to-br from-orange-900 to-slate-800",
+];
+
+const getCardTopOffsetClass = (index: number): string => {
+  if (index < CARD_TOP_OFFSET_CLASSES.length) {
+    return CARD_TOP_OFFSET_CLASSES[index];
+  }
+
+  return CARD_TOP_OFFSET_CLASSES[CARD_TOP_OFFSET_CLASSES.length - 1];
+};
+
+const getCardGradientClass = (color: string, index: number): string => {
+  const normalizedColor = color.trim().toLowerCase();
+  const mappedGradient = COLOR_GRADIENT_CLASS_MAP[normalizedColor];
+
+  if (mappedGradient) {
+    return mappedGradient;
+  }
+
+  return FALLBACK_GRADIENT_CLASSES[index % FALLBACK_GRADIENT_CLASSES.length];
+};
+
 export const Card: React.FC<CardProps> = ({
   i,
   title,
@@ -71,37 +108,22 @@ export const Card: React.FC<CardProps> = ({
   src,
   url,
   color,
-  progress,
-  range,
-  targetScale,
 }) => {
-  const container = useRef(null);
-  const scale = useTransform(progress, range, [1, targetScale]);
+  const topOffsetClass = getCardTopOffsetClass(i);
+  const gradientClass = getCardGradientClass(color, i);
 
   return (
-    <div
-      ref={container}
-      className="h-screen flex items-center justify-center sticky top-0"
-    >
-      <motion.div
-        style={{
-          scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-        }}
-        className={`flex flex-col relative -top-[25%] md:h-[70%] h-max w-[90%] rounded-3xl md:p-12 p-6 origin-center backdrop-blur-sm border border-white/10 shadow-2xl overflow-hidden`}
+    <div className="h-screen flex items-center justify-center sticky top-0">
+      <div
+        className={cn(
+          "flex flex-col relative -top-[25%] md:h-[70%] h-max w-[90%] rounded-3xl md:p-12 p-6 origin-center backdrop-blur-sm border border-white/10 shadow-2xl overflow-hidden",
+          topOffsetClass,
+        )}
       >
         {/* Background gradient overlay */}
         <div
-          className="absolute inset-0 opacity-90 -z-10"
-          style={{
-            background: `linear-gradient(135deg, ${color} 0%, ${color}dd 100%)`,
-          }}
+          className={cn("absolute inset-0 opacity-90 -z-10", gradientClass)}
         />
-
-        {/* Eyebrow text */}
-        <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-white/70 mb-3">
-          Project {String(i + 1).padStart(2, "0")}
-        </span>
 
         <h2 className="text-xl md:text-3xl font-light tracking-tight leading-tight mb-1 text-white">
           {title.split(":")[0]}
@@ -145,7 +167,7 @@ export const Card: React.FC<CardProps> = ({
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

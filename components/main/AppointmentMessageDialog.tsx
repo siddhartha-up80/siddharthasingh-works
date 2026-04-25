@@ -20,6 +20,7 @@ export default function AppointmentMessageDialog({
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const formatDate = (date: Date | null) => {
     if (!date) return "";
@@ -34,34 +35,47 @@ export default function AppointmentMessageDialog({
     return date.toLocaleDateString("en-US", options);
   };
 
-  // Pre-fill the message with appointment details
+  // Pre-fill the message with selected date details
   const getDefaultMessage = () => {
     if (!selectedDate) return "";
-    return `I would like to book an appointment call on ${formatDate(
-      selectedDate
-    )}.\n\nPreferred time: \n\nTopic to discuss: \n\nAdditional notes: `;
+    return `I would like to send a message regarding ${formatDate(
+      selectedDate,
+    )}.\n\nTopic to discuss: \n\nAdditional notes: `;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage("");
+    setSuccessMessage("");
 
-    if (!email || !message) {
-      alert("Email and message are required");
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const submittedEmail = String(formData.get("email") ?? email).trim();
+    const submittedMessage = String(formData.get("message") ?? message).trim();
+    const trimmedEmail = submittedEmail;
+    const effectiveMessage = (submittedMessage || getDefaultMessage()).trim();
+
+    if (!trimmedEmail || !effectiveMessage) {
+      setErrorMessage("Email and message are required");
       return;
     }
 
     try {
       setLoading(true);
-      const appointmentMessage = `APPOINTMENT REQUEST\n\nDate: ${formatDate(
-        selectedDate
-      )}\n\n${message}`;
+      const messageBody = `MESSAGE REQUEST\n\nDate: ${formatDate(
+        selectedDate,
+      )}\n\n${effectiveMessage}`;
 
-      await sendEmail({
-        sentByEmail: email,
-        body: appointmentMessage,
+      const result = await sendEmail({
+        sentByEmail: trimmedEmail,
+        body: messageBody,
       });
 
-      setSuccessMessage("Appointment request sent successfully!");
+      if (result.error) {
+        setErrorMessage(result.error);
+        return;
+      }
+
+      setSuccessMessage("Message sent successfully!");
       setEmail("");
       setMessage("");
 
@@ -71,8 +85,8 @@ export default function AppointmentMessageDialog({
         onClose();
       }, 2000);
     } catch (error) {
-      console.error("Failed to send appointment request:", error);
-      alert("Failed to send appointment request. Please try again later.");
+      console.error("Failed to send message:", error);
+      setErrorMessage("Failed to send message. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -83,6 +97,7 @@ export default function AppointmentMessageDialog({
       setEmail("");
       setMessage("");
       setSuccessMessage("");
+      setErrorMessage("");
       onClose();
     }
   };
@@ -116,7 +131,7 @@ export default function AppointmentMessageDialog({
                     <Calendar className="w-5 h-5 text-red-500" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold">Book Appointment</h2>
+                    <h2 className="text-xl font-semibold">Send Message</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       {formatDate(selectedDate)}
                     </p>
@@ -148,6 +163,7 @@ export default function AppointmentMessageDialog({
                       <input
                         type="email"
                         id="appointment-email"
+                        name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="your.email@example.com"
@@ -168,9 +184,10 @@ export default function AppointmentMessageDialog({
                     </label>
                     <textarea
                       id="appointment-message"
+                      name="message"
                       value={message || getDefaultMessage()}
                       onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Enter your appointment details..."
+                      placeholder="Enter your message details..."
                       rows={8}
                       className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all resize-none"
                       required
@@ -189,20 +206,29 @@ export default function AppointmentMessageDialog({
                     </motion.div>
                   )}
 
+                  {/* Error Message */}
+                  {errorMessage && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-lg text-sm text-center font-medium"
+                    >
+                      {errorMessage}
+                    </motion.div>
+                  )}
+
                   {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={loading}
                     className="w-full px-4 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {loading
-                      ? "Sending Request..."
-                      : "Send Appointment Request"}
+                    {loading ? "Sending Message..." : "Send Message"}
                   </button>
 
                   <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-                    Your appointment request will be sent to Siddhartha Singh.
-                    You&apos;ll receive a confirmation via email.
+                    Your message will be sent to Siddhartha Singh. You&apos;ll
+                    receive a confirmation via email.
                   </p>
                 </div>
               </form>

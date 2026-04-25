@@ -121,7 +121,7 @@ function CloseButton({ onClick }: { onClick: () => void }) {
  */
 function useOutsideClick(
   ref: React.RefObject<HTMLDivElement>,
-  callback: () => void
+  callback: () => void,
 ) {
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {

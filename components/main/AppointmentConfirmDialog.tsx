@@ -70,11 +70,9 @@ export default function AppointmentConfirmDialog({
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      Book an Appointment
-                    </h3>
+                    <h3 className="text-xl font-semibold mb-2">Send Message</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Would you like to book a call for
+                      Would you like to send a message for
                     </p>
                     <p className="text-lg font-medium text-red-500 mt-2">
                       {formatDate(selectedDate)}
@@ -95,7 +93,7 @@ export default function AppointmentConfirmDialog({
                   onClick={onConfirm}
                   className="flex-1 px-4 py-2 rounded-lg bg-red-500 hover:bg-red-600 text-white transition-colors font-medium"
                 >
-                  Yes, Book
+                  Yes, Send
                 </button>
               </div>
             </div>

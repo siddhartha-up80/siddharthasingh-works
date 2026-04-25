@@ -7,8 +7,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import DockFooter, { links } from "@/components/main/dock-footer";
 import CanvasCursor from "@/components/ui/canvas-cursor";
 import Footer from "@/components/main/footer";
-import { Toaster } from "@/components/ui/toaster";
-import { ToastContainer } from "react-toastify";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,8 +39,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar items={links} />
           <div className="md:pb-24">{children}</div>
-          <Toaster />
-          <ToastContainer />
+          <Toaster richColors />
           <div className="md:fixed md:bottom-0 fixed bottom-[10vh] left-5 md:left-0 w-full z-[100]">
             <DockFooter />
           </div>

@@ -8,8 +8,6 @@ import { links } from "./dock-footer";
 export default function Footer() {
   const controls = useAnimation();
   const footerRef = useRef(null);
-  const backgroundImage =
-    "https://images.unsplash.com/photo-1515865404355-ddb5b0910878?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,15 +63,7 @@ export default function Footer() {
   return (
     <div ref={footerRef}>
       <div>
-        <div
-          className="w-full bg-gray-600 shadow-md h-[50vh]"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundPosition: "center center",
-            backgroundBlendMode: "multiply",
-            backgroundSize: "cover",
-          }}
-        >
+        <div className="footer-background w-full bg-gray-600 shadow-md h-[50vh]">
           <motion.div
             className="flex justify-center flex-col h-full items-center mx-auto text-white"
             initial="hidden"
@@ -125,19 +115,6 @@ export default function Footer() {
           </motion.div>
         </div>
       </div>
-
-      <footer className="text-white body-font bg-black">
-        <div className="px-3 pr-5 py-3 mx-auto flex items-center justify-between sm:flex-row flex-col">
-          <Link
-            href="/"
-            className="flex title-font font-medium items-center md:justify-start justify-center"
-          >
-            <span className="text-sm">
-              Made by Siddhartha Singh with ❤️ and Next.js
-            </span>
-          </Link>
-        </div>
-      </footer>
     </div>
   );
 }

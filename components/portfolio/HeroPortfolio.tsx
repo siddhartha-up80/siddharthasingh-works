@@ -17,13 +17,13 @@ const HeroPortfolio = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-4">
+          {/* <span className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-4">
             Full Stack Developer
-          </span>
-          <div className="text-4xl font-light !leading-tight sm:text-6xl tracking-tight">
+          </span> */}
+          <div className="text-4xl font-light !leading-tight sm:text-6xl tracking-tight min-w-[30vw]">
             Siddhartha Singh
             <br />
-            <span className="text-2xl sm:text-3xl font-extralight text-gray-600 dark:text-gray-300">
+            <span className="text-xl sm:text-2xl font-extralight text-gray-600 dark:text-gray-300">
               <TextGenerateEffect
                 words={`Next.js Enthusiast, Crafting Engaging Interfaces`}
                 filter={false}

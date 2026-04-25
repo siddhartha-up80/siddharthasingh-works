@@ -19,7 +19,7 @@ const Page = () => {
       <AboutImageIntro />
       <AboutSkills />
       <AboutTimeline />
-      <AboutSetup />
+      {/* <AboutSetup /> */}
       <QuickLinks
         forwardLink={`/portfolio/projects`}
         forwardLinkText="View my Projects"
