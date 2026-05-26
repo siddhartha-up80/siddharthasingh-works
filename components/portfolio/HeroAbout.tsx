@@ -62,14 +62,6 @@ const About = () => {
               </span>
             </motion.p>
 
-            <motion.p variants={containerVariants} className="font-light">
-              Graduated from
-              <span className="text-red-900 dark:text-red-200 mx-1 font-normal">
-                Vellore Institute of Technology, Bhopal
-              </span>
-              with Bachelor of Technology in ECE.
-            </motion.p>
-
             {/* <Link href={`/portfolio/about`} className="w-full">
               <motion.button
                 className="group relative inline-flex h-12 px-8 items-center justify-center gap-2 rounded-full bg-black dark:bg-white text-white dark:text-black font-light text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"

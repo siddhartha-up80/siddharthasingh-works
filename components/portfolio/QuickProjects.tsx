@@ -19,24 +19,26 @@ interface QuickProjectsProps {
 export default function index({ projects }: QuickProjectsProps): JSX.Element {
   return (
     <main>
-      <section className="text-white w-full">
-        <h1 className="text-center my-20 text-black dark:text-white relative top-10 text-2xl md:text-5xl font-light tracking-tight">
-          Quick Projects
+      <section className="text-white w-full py-10">
+        <h1 className="text-center mb-10 text-black dark:text-white text-2xl md:text-4xl font-light tracking-tight">
+          Work Samples
         </h1>
 
-        {projects.map((project, i) => {
-          return (
-            <Card
-              key={`p_${i}`}
-              i={i}
-              url={project?.link}
-              src={project?.img}
-              title={project?.title}
-              color={project?.color || "#000000"}
-              description={project?.description}
-            />
-          );
-        })}
+        <div className="flex flex-col gap-4 pb-20">
+          {projects.map((project, i) => {
+            return (
+              <Card
+                key={`p_${i}`}
+                i={i}
+                url={project?.link}
+                src={project?.img}
+                title={project?.title}
+                color={project?.color || "#000000"}
+                description={project?.description}
+              />
+            );
+          })}
+        </div>
       </section>
     </main>
   );
@@ -49,21 +51,6 @@ interface CardProps {
   url: string;
   color: string;
 }
-
-const CARD_TOP_OFFSET_CLASSES = [
-  "top-[-5vh]",
-  "top-[20px]",
-  "top-[45px]",
-  "top-[70px]",
-  "top-[95px]",
-  "top-[120px]",
-  "top-[145px]",
-  "top-[170px]",
-  "top-[195px]",
-  "top-[220px]",
-  "top-[245px]",
-  "top-[270px]",
-];
 
 const COLOR_GRADIENT_CLASS_MAP: Record<string, string> = {
   "#ec4889": "bg-gradient-to-br from-[#ec4889] to-[#be185d]",
@@ -81,14 +68,6 @@ const FALLBACK_GRADIENT_CLASSES = [
   "bg-gradient-to-br from-emerald-900 to-slate-800",
   "bg-gradient-to-br from-orange-900 to-slate-800",
 ];
-
-const getCardTopOffsetClass = (index: number): string => {
-  if (index < CARD_TOP_OFFSET_CLASSES.length) {
-    return CARD_TOP_OFFSET_CLASSES[index];
-  }
-
-  return CARD_TOP_OFFSET_CLASSES[CARD_TOP_OFFSET_CLASSES.length - 1];
-};
 
 const getCardGradientClass = (color: string, index: number): string => {
   const normalizedColor = color.trim().toLowerCase();
@@ -109,15 +88,13 @@ export const Card: React.FC<CardProps> = ({
   url,
   color,
 }) => {
-  const topOffsetClass = getCardTopOffsetClass(i);
   const gradientClass = getCardGradientClass(color, i);
 
   return (
-    <div className="h-screen flex items-center justify-center sticky top-0">
+    <div className="flex items-center justify-center my-8 md:my-12">
       <div
         className={cn(
-          "flex flex-col relative -top-[25%] md:h-auto h-max w-[90%] rounded-3xl md:p-12 p-6 origin-center backdrop-blur-sm border border-white/10 shadow-2xl overflow-hidden",
-          topOffsetClass,
+          "flex flex-col relative md:h-auto h-max w-[90%] rounded-3xl md:p-12 p-6 backdrop-blur-sm border border-white/10 shadow-2xl overflow-hidden",
         )}
       >
         {/* Background gradient overlay */}
@@ -135,7 +112,7 @@ export const Card: React.FC<CardProps> = ({
             <p className="text-xs md:text-sm font-light text-white/80 mb-4">
               {title.includes(":") ? title.split(":")[1].trim() : ""}
             </p>
-            
+
             <p className="text-xs md:text-sm font-light leading-relaxed text-white/90">
               {description}
             </p>
