@@ -1,7 +1,8 @@
 export const CMS_AUTH_COOKIE = "cms_auth";
 export const CMS_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 8;
 
-const resolveCmsPassword = () => process.env.CMS_PASSWORD || "";
+const resolveCmsPassword = () =>
+  process.env.CMS_PASSWORD || process.env.NEXT_PUBLIC_CMS_PASSWORD || "";
 
 const resolveCmsAuthSecret = () =>
   process.env.CMS_AUTH_SECRET || resolveCmsPassword();

@@ -24,9 +24,11 @@ export const metadata: Metadata = {
 const Page = async () => {
   const quickProjects = await getQuickProjects();
 
+  // console.log("quickProjects", quickProjects);
+
   return (
     <div className="space-y-5">
-      <HeroPortfolio />
+      <HeroPortfolio projects={quickProjects} />
       <About />
       <QuickProjects projects={quickProjects} />
       <AboutSkills />

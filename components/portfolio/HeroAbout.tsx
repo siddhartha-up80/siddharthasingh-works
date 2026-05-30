@@ -44,7 +44,7 @@ const About = () => {
           className="flex justify-between items-center flex-col md:flex-row md:max-w-[90vw] mx-auto overflow-hidden"
         >
           <motion.div
-            className="min-w-[45vw] flex flex-col font-light gap-8 p-10 flex-wrap text-lg md:text-xl leading-relaxed"
+            className="min-w-[45vw] flex flex-col font-light gap-3 p-10 flex-wrap text-lg md:text-xl leading-relaxed"
             variants={textVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -55,11 +55,7 @@ const About = () => {
 
             <motion.p variants={containerVariants} className="font-light">
               A Next.js developer, with a strong inclination towards challenging
-              projects, designing and developing web applications. My Primary
-              tech stack includes{" "}
-              <span className="text-red-900 dark:text-red-200 font-normal">
-                Next.js, ReactJs, Tailwind, Node.js, Express.js & MongoDB.
-              </span>
+              projects, designing and developing web applications.
             </motion.p>
 
             {/* <Link href={`/portfolio/about`} className="w-full">
